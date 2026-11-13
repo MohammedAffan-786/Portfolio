@@ -1,0 +1,18 @@
+{
+  "institution": "Sri Siddhartha Institute of Technology",
+  "location": "Tumakuru, Karnataka, India",
+  "degree": "Bachelor of Engineering (B.E.)",
+  "major": "Computer Science and Engineering",
+  "timeline": "2024 – 2027",
+  "timelineStatus": "Subject to final confirmation",
+  "cgpa": null,
+  "cgpaNotice": "CGPA is withheld until officially published and verified by the university.",
+  "courseworkHighlights": [
+    "Data Structures & Algorithms",
+    "Object-Oriented Programming",
+    "Database Management Systems",
+    "Operating Systems",
+    "Computer Networks",
+    "Software Engineering Principles"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "notice": "Mohammed Affan is currently an undergraduate student actively building practical engineering systems. No commercial full-time or internship employment is claimed.",
+  "roles": [
+    {
+      "title": "Undergraduate Student & Independent Builder",
+      "organization": "Sri Siddhartha Institute of Technology",
+      "period": "2024 – Present",
+      "type": "Academic & Project Engineering",
+      "location": "Tumakuru, Karnataka",
+      "description": "Engaged in core computer science coursework while independently designing and implementing full-stack applications, autonomous developer tooling (DevFlow AI), and agentic RAG assistants (EduReach).",
+      "highlights": [
+        "Architecting full-stack web applications with React, Next.js, Express, and MongoDB",
+        "Exploring local Large Language Models (Ollama, Llama 3.1) and agentic workflows",
+        "Practicing disciplined Git version control and clean code principles"
+      ]
+    }
+  ]
+}
