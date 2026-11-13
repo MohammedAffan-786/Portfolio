@@ -280,7 +280,9 @@ export function AffanAIModal({ isOpen, onClose }: AffanAIModalProps) {
                     : "bg-zinc-900/90 border border-white/[0.08] text-zinc-200 rounded-tl-none shadow-md"
                 }`}
               >
-                <div className="whitespace-pre-wrap">{msg.content}</div>
+                <div className="whitespace-pre-wrap">
+                  {msg.content.replace(/[*#`_~]/g, "")}
+                </div>
 
                 {/* Bottom message toolbar */}
                 <div className="mt-2 pt-2 border-t border-white/[0.08] flex items-center justify-between text-[10px] font-mono text-zinc-400">
