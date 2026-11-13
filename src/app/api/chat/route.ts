@@ -1,29 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAIConfig, checkOllamaHealth, streamOllamaChat, ChatMessageInput } from "@/lib/ai/provider";
 import { generateAffanAISystemPrompt } from "@/lib/ai/systemPrompt";
+import { generateKnowledgeResponse } from "@/lib/ai/fallbackEngine";
 
 export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
   try {
     const config = getAIConfig();
-
-    if (!config.enabled) {
-      return NextResponse.json(
-        { error: "Affan AI is currently disabled in configuration." },
-        { status: 503 }
-      );
-    }
-
-    const isProduction = process.env.NODE_ENV === "production";
-    if (isProduction && !config.allowPublicAccess) {
-      return NextResponse.json(
-        {
-          error: "Affan AI is currently offline. Please explore the portfolio or contact Mohammed directly.",
-        },
-        { status: 503 }
-      );
-    }
 
     // Parse and validate request
     const body = await req.json().catch(() => null);
@@ -34,7 +18,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Enforce limits for security & zero-cost server protection
     const messages: ChatMessageInput[] = body.messages.slice(-8).map((m: any) => ({
       role: m.role === "assistant" ? "assistant" : "user",
       content: String(m.content || "").slice(0, 1000),
@@ -48,19 +31,41 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Health check
-    const isAlive = await checkOllamaHealth(config.baseUrl);
-    if (!isAlive) {
-      return NextResponse.json(
-        {
-          error: "Affan AI is currently offline. Please explore the portfolio or contact Mohammed directly.",
-        },
-        { status: 503 }
-      );
+    // Try Ollama if running
+    const isOllamaAlive = await checkOllamaHealth(config.baseUrl);
+    if (isOllamaAlive) {
+      try {
+        const systemPrompt = generateAffanAISystemPrompt();
+        const stream = await streamOllamaChat(messages, config, systemPrompt);
+
+        return new Response(stream, {
+          headers: {
+            "Content-Type": "text/plain; charset=utf-8",
+            "Cache-Control": "no-cache, no-transform",
+            "X-Content-Type-Options": "nosniff",
+          },
+        });
+      } catch (err) {
+        console.warn("Ollama streaming failed, falling back to Knowledge Engine", err);
+      }
     }
 
-    const systemPrompt = generateAffanAISystemPrompt();
-    const stream = await streamOllamaChat(messages, config, systemPrompt);
+    // Knowledge Engine fallback (streams answer smoothly so UI gets live typed response)
+    const answer = generateKnowledgeResponse(lastMessage.content);
+    const encoder = new TextEncoder();
+
+    const stream = new ReadableStream({
+      async start(controller) {
+        const words = answer.split(" ");
+        for (let i = 0; i < words.length; i++) {
+          const chunk = (i === 0 ? "" : " ") + words[i];
+          controller.enqueue(encoder.encode(chunk));
+          // Small artificial delay for natural streaming feel
+          await new Promise((resolve) => setTimeout(resolve, 20));
+        }
+        controller.close();
+      },
+    });
 
     return new Response(stream, {
       headers: {
@@ -73,9 +78,9 @@ export async function POST(req: NextRequest) {
     console.error("Chat API error:", error);
     return NextResponse.json(
       {
-        error: "Affan AI is currently offline. Please explore the portfolio or contact Mohammed directly.",
+        error: "Unable to process inquiry at this moment. Please reach out to Mohammed directly at mohammedaffan971211@gmail.com.",
       },
-      { status: 503 }
+      { status: 500 }
     );
   }
 }

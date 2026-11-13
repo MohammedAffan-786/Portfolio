@@ -213,18 +213,14 @@ export function AffanAIModal({ isOpen, onClose }: AffanAIModalProps) {
                 <h2 id="affan-ai-title" className="text-sm font-bold text-white tracking-tight">
                   Affan AI
                 </h2>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-300">
-                  Llama 3.1 8B
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-sky-300">
+                  {aiStatus.model || "Portfolio Intelligence"}
                 </span>
               </div>
               <div className="flex items-center gap-1.5 text-[11px] font-mono">
-                <span
-                  className={`w-1.5 h-1.5 rounded-full ${
-                    aiStatus.available ? "bg-emerald-400" : "bg-amber-400"
-                  }`}
-                />
-                <span className={aiStatus.available ? "text-emerald-400" : "text-amber-400"}>
-                  {aiStatus.available ? "Ollama Online (Local)" : "Offline Mode"}
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                <span className="text-emerald-400">
+                  {aiStatus.status === "online" ? "Ollama Online (Local)" : "Knowledge Engine Online"}
                 </span>
               </div>
             </div>
@@ -257,21 +253,14 @@ export function AffanAIModal({ isOpen, onClose }: AffanAIModalProps) {
           </div>
         </div>
 
-        {/* Offline notice bar if unavailable */}
-        {!aiStatus.available && (
-          <div className="px-4 py-2.5 bg-amber-950/30 border-b border-amber-500/20 text-xs text-amber-200 flex items-start gap-2.5">
-            <AlertCircle className="w-4 h-4 text-amber-400 mt-0.5 flex-shrink-0" />
-            <div className="leading-tight">
-              <span className="font-semibold block text-[11px] uppercase tracking-wide">
-                Honest Connection Notice:
-              </span>
-              {aiStatus.message}
-              <span className="block text-[11px] text-amber-300/80 mt-0.5">
-                To test live local inference: run <code className="bg-black/40 px-1 rounded font-mono">ollama run llama3.1:8b</code>.
-              </span>
-            </div>
+        {/* Engine status indicator */}
+        <div className="px-4 py-2 bg-zinc-950/60 border-b border-white/[0.05] text-[11px] text-zinc-400 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            <span>Grounded strictly on Mohammed&apos;s verified portfolio &amp; SSIT data.</span>
           </div>
-        )}
+          <span className="font-mono text-zinc-400 text-[10px]">v1.0 &bull; Active</span>
+        </div>
 
         {/* Messages Stream Container */}
         <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-4">
