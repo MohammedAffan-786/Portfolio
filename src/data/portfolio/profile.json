@@ -1,13 +1,15 @@
 {
-  "name": "Mohammed Affan",
-  "headline": "Computer Science Undergraduate | Aspiring Software Developer | AI & Full-Stack Enthusiast",
-  "introduction": "Hi, I'm Mohammed Affan. I build software, explore emerging technologies, and enjoy solving practical problems through engineering.",
-  "about": "I am a Computer Science undergraduate at Sri Siddhartha Institute of Technology, Tumakuru. My focus lies in software engineering, full-stack systems, and practical AI integrations. I enjoy dissecting complex systems, understanding the principles behind distributed architectures, and building intuitive, resilient applications that bridge developer tooling and machine intelligence.",
-  "location": "Bengaluru, Karnataka, India",
-  "availability": "Open to software engineering internships, collaborative open-source work, and academic projects",
+  "name": "Mohammed Affan Farooq",
+  "displayName": "Mohammed Affan",
+  "headline": "Computer Science Engineering Student | MERN Stack Developer | AI-Powered Application Developer",
+  "tagline": "Building intelligent applications. Exploring what's possible with technology.",
+  "introduction": "Hi, I'm Mohammed Affan, a Computer Science Engineering student at Sri Siddhartha Institute of Technology. I enjoy building web applications, exploring AI technologies, and developing practical solutions to real-world problems.",
+  "about": "I'm a Computer Science Engineering undergraduate interested in full-stack development and AI-powered applications. I enjoy working with modern web technologies, exploring new development tools, and understanding how software systems work. I believe in continuous learning and improving through hands-on experience. My focus is on building meaningful applications, strengthening my technical abilities, and exploring how emerging technologies can solve practical problems.",
+  "location": "Tumakuru, Karnataka, India",
+  "availability": "Open to software engineering internships, collaborative open-source projects, and engineering opportunities",
   "statusVerification": {
     "isConfirmed": true,
     "lastReviewed": "2026-11-13",
-    "notice": "All details adhere strictly to verified academic and project facts with zero fabricated employment or metrics."
+    "notice": "All details verified directly from confirmed student profile with zero fabricated experience or claims."
   }
 }

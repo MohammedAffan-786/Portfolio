@@ -1,18 +1,18 @@
 {
-  "institution": "Sri Siddhartha Institute of Technology",
+  "institution": "Sri Siddhartha Institute of Technology (SSIT)",
   "location": "Tumakuru, Karnataka, India",
   "degree": "Bachelor of Engineering (B.E.)",
   "major": "Computer Science and Engineering",
   "timeline": "2024 – 2027",
-  "timelineStatus": "Subject to final confirmation",
+  "timelineStatus": "Active Student (2024–2027)",
   "cgpa": null,
-  "cgpaNotice": "CGPA is withheld until officially published and verified by the university.",
+  "cgpaNotice": "CGPA is withheld from public display until officially confirmed.",
   "courseworkHighlights": [
     "Data Structures & Algorithms",
-    "Object-Oriented Programming",
-    "Database Management Systems",
+    "Object-Oriented Programming (C++)",
+    "Database Management Systems (MySQL & MongoDB)",
     "Operating Systems",
     "Computer Networks",
-    "Software Engineering Principles"
+    "Web Application Development"
   ]
 }

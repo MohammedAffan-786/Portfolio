@@ -58,7 +58,7 @@ const filesToInclude = [
   { category: 'UI Components', path: 'src/components/layout/Footer.tsx' },
 ];
 
-console.log('Generating PDF documentation...');
+console.log('Generating personalized PDF documentation...');
 
 const doc = new PDFDocument({
   margin: 40,
@@ -73,38 +73,40 @@ doc.pipe(writeStream);
 doc.rect(0, 0, doc.page.width, doc.page.height).fill('#08090d');
 
 doc.fontSize(28).fillColor('#38bdf8').font('Helvetica-Bold');
-doc.text('MOHAMMED AFFAN', 50, 160);
+doc.text('MOHAMMED AFFAN FAROOQ', 50, 160);
 
-doc.fontSize(16).fillColor('#ffffff').font('Helvetica');
-doc.text('Advanced AI-Powered Developer Portfolio', 50, 205);
+doc.fontSize(15).fillColor('#ffffff').font('Helvetica');
+doc.text('Computer Science Engineering Student | MERN Stack & AI Developer', 50, 205);
 
-doc.fontSize(12).fillColor('#94a3b8').font('Helvetica');
-doc.text('Complete Production Codebase, System Architecture & Verified Dataset', 50, 230);
+doc.fontSize(11).fillColor('#94a3b8').font('Helvetica');
+doc.text('Sri Siddhartha Institute of Technology (SSIT), Tumakuru', 50, 230);
 
-doc.rect(50, 260, 495, 2).fill('#3b82f6');
+doc.rect(50, 255, 495, 2).fill('#3b82f6');
 
 doc.fontSize(10).fillColor('#cbd5e1').font('Helvetica');
 const introText = 
-  'This document contains the verified production source code for Mohammed Affan\'s developer portfolio.\n\n' +
-  '• Developer: Mohammed Affan\n' +
-  '• Education: B.E. Computer Science, Sri Siddhartha Institute of Technology (SSIT), Tumakuru\n' +
-  '• Budget Policy: Strict Zero-Cost (₹0 Expenditure)\n' +
-  '• Stack: Next.js 15, React 19, TypeScript 5, Tailwind CSS, Local Ollama (Llama 3.1 8B), GitHub REST API\n' +
-  '• Generated: November 2026';
+  'This document contains the verified production source code for Mohammed Affan Farooq\'s developer portfolio.\n\n' +
+  '• Developer: Mohammed Affan Farooq\n' +
+  '• Education: B.E. Computer Science and Engineering, Sri Siddhartha Institute of Technology (SSIT), Tumakuru\n' +
+  '• Core Stack: Python, JavaScript, C++, HTML, CSS, React.js, Node.js, Express.js, MongoDB, MySQL, Generative AI\n' +
+  '• Featured Projects: DevFlow AI, EduReach, AI-Powered Research Engine\n' +
+  '• Budget: Strict Zero-Cost (₹0 Expenditure)\n' +
+  '• Live URL: https://affan-portfolio.vercel.app\n' +
+  '• Contact: mohammedaffan971211@gmail.com | linkedin.com/in/mdaffan1 | github.com/MohammedAffan-786';
 
-doc.text(introText, 50, 280, { width: 495, lineGap: 4 });
+doc.text(introText, 50, 275, { width: 495, lineGap: 4 });
 
-doc.rect(50, 420, 495, 120).strokeColor('#1e293b').stroke();
+doc.rect(50, 440, 495, 110).strokeColor('#1e293b').stroke();
 doc.fontSize(11).fillColor('#38bdf8').font('Helvetica-Bold');
-doc.text('VERIFICATION & HONESTY CONTRACT', 65, 435);
+doc.text('DATA INTEGRITY & HONESTY AUDIT', 65, 455);
 
 doc.fontSize(9).fillColor('#94a3b8').font('Helvetica');
 const auditNotice = 
-  '1. Zero fabricated experience, certifications, or GPA percentages.\n' +
-  '2. Distinguishes Completed (AI Resume Analyser), In Development (DevFlow AI, EduReach, RapidCare), and Concept (MountainSafe AI).\n' +
-  '3. Local AI runs through open-weights Ollama (Llama 3.1 8B) without paid API keys.\n' +
-  '4. Mode A (Local Ollama streaming) and Mode B (Graceful offline Vercel deployment).';
-doc.text(auditNotice, 65, 455, { width: 465, lineGap: 3 });
+  '1. Strict zero-fabrication contract: authentic student profile and real projects.\n' +
+  '2. Status clarity: DevFlow AI (In Development), EduReach (In Development), AI Research Engine (Concept / Planned).\n' +
+  '3. Local inference: Local Ollama (Llama 3.1 8B) with transparent offline fallback on serverless.\n' +
+  '4. Live GitHub integration: Real telemetry from github.com/MohammedAffan-786 with rate-limit protection.';
+doc.text(auditNotice, 65, 475, { width: 465, lineGap: 3 });
 
 // Table of Contents
 doc.addPage();
@@ -152,20 +154,17 @@ filesToInclude.forEach((file, index) => {
 
   doc.font('Courier').fontSize(7.5).fillColor('#1e293b');
   
-  // Wrap lines for neat printing
   const lines = content.split('\n');
   let currentY = 75;
   const bottomMargin = 780;
 
   for (let i = 0; i < lines.length; i++) {
     const rawLine = lines[i].replace(/\t/g, '  ');
-    // Truncate overly long lines to avoid wrapping glitches
     const line = rawLine.length > 110 ? rawLine.slice(0, 107) + '...' : rawLine;
 
     if (currentY > bottomMargin) {
       doc.addPage();
       doc.rect(0, 0, doc.page.width, doc.page.height).fill('#ffffff');
-      // Continuation header
       doc.rect(40, 30, 515, 20).fill('#f1f5f9');
       doc.fillColor('#475569').font('Helvetica-Bold').fontSize(8).text(
         `${file.path} (continued)`,
@@ -187,7 +186,7 @@ for (let i = 0; i < totalPages; i++) {
   doc.switchToPage(i);
   if (i > 0) {
     doc.fillColor('#94a3b8').font('Helvetica').fontSize(8).text(
-      `Mohammed Affan Portfolio Codebase • Page ${i + 1} of ${totalPages}`,
+      `Mohammed Affan Farooq Portfolio Codebase • Page ${i + 1} of ${totalPages}`,
       40,
       doc.page.height - 25,
       { align: 'center', width: doc.page.width - 80 }

@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowUp, Github, Linkedin, Mail, ShieldCheck, Heart } from "lucide-react";
+import { ArrowUp, Github, Linkedin, Mail, ShieldCheck } from "lucide-react";
 
 interface FooterProps {
   githubUrl: string;
@@ -22,10 +22,10 @@ export function Footer({ githubUrl, linkedinUrl, email }: FooterProps) {
           {/* Identity */}
           <div className="flex flex-col items-center md:items-start space-y-1.5 text-center md:text-left">
             <span className="font-bold text-white text-base tracking-tight">
-              Mohammed Affan
+              Mohammed Affan Farooq
             </span>
             <p className="text-zinc-400 text-xs max-w-md">
-              Computer Science Undergraduate &bull; Sri Siddhartha Institute of Technology, Tumakuru
+              Computer Science Engineering Student &bull; Sri Siddhartha Institute of Technology (SSIT), Tumakuru
             </p>
           </div>
 
@@ -71,10 +71,10 @@ export function Footer({ githubUrl, linkedinUrl, email }: FooterProps) {
         <div className="pt-6 border-t border-white/[0.05] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-zinc-400">
           <div className="flex items-center gap-1.5">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Strict Zero-Cost &bull; 100% Verified Information &bull; Real Projects</span>
+            <span>Strict Zero-Cost &bull; 100% Verified Portfolio Information</span>
           </div>
           <div>
-            &copy; {new Date().getFullYear()} Mohammed Affan. Crafted with Next.js &amp; Tailwind CSS.
+            &copy; {new Date().getFullYear()} Mohammed Affan Farooq. Crafted with Next.js, React &amp; Tailwind CSS.
           </div>
         </div>
       </div>

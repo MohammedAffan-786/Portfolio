@@ -1,53 +1,56 @@
 {
   "categories": [
     {
-      "name": "Core Languages",
-      "description": "Foundational programming languages utilized in coursework, problem solving, and projects.",
+      "name": "Programming Languages",
+      "description": "Core languages for systems, algorithms, and application development.",
       "skills": [
-        { "name": "Python", "level": "Proficient", "verified": true, "note": "Used in AI Resume Analyser, scripts, and algorithms." },
-        { "name": "JavaScript (ES6+)", "level": "Proficient", "verified": true, "note": "Primary language for asynchronous web development." },
-        { "name": "TypeScript", "level": "Working Knowledge", "verified": true, "note": "Strict typing in DevFlow AI and EduReach." },
-        { "name": "HTML5 & CSS3", "level": "Proficient", "verified": true, "note": "Semantic structure, responsive styling, and layouts." },
-        { "name": "SQL", "level": "Proficient", "verified": true, "note": "Relational schema design, queries, and joins." }
+        { "name": "Python", "level": "Proficient", "verified": true, "note": "Used in AI backend services, automation, and data structures." },
+        { "name": "JavaScript (ES6+)", "level": "Proficient", "verified": true, "note": "Primary language for asynchronous web and MERN development." },
+        { "name": "C++", "level": "Proficient", "verified": true, "note": "Academic coursework, computational problem solving, and OOP." }
       ]
     },
     {
-      "name": "Frontend Engineering",
-      "description": "Modern component frameworks and styling libraries verified in active repositories.",
+      "name": "Frontend Development",
+      "description": "User interface design, markup, styling, and reactive components.",
       "skills": [
-        { "name": "React.js", "level": "Project Experience", "verified": true, "note": "SPA architecture in EduReach and DevFlow UI." },
-        { "name": "Next.js (App Router)", "level": "Project Experience", "verified": true, "note": "Server components and API endpoints." },
-        { "name": "Tailwind CSS", "level": "Project Experience", "verified": true, "note": "Utility-first design and responsive layouts." },
-        { "name": "Vite", "level": "Project Experience", "verified": true, "note": "Fast client bundling for modern React apps." }
+        { "name": "HTML5", "level": "Proficient", "verified": true, "note": "Semantic markup and accessible page structures." },
+        { "name": "CSS3", "level": "Proficient", "verified": true, "note": "Responsive layouts, Flexbox, Grid, and animations." },
+        { "name": "React.js", "level": "Basic / Working Knowledge", "verified": true, "note": "Component-driven single page application development." }
       ]
     },
     {
-      "name": "Backend & APIs",
-      "description": "Server-side runtimes, frameworks, and architecture patterns.",
+      "name": "Backend Development",
+      "description": "Server-side runtimes, frameworks, and API engineering.",
       "skills": [
-        { "name": "Node.js", "level": "Project Experience", "verified": true, "note": "Event-driven runtime for services and REST APIs." },
-        { "name": "Express.js", "level": "Project Experience", "verified": true, "note": "Routing and middleware in EduReach backend." },
-        { "name": "RESTful API Design", "level": "Project Experience", "verified": true, "note": "Structured JSON endpoints and error handling." },
-        { "name": "JWT Authentication", "level": "Project Experience", "verified": true, "note": "Secure token generation and role verification." }
+        { "name": "Node.js", "level": "Proficient", "verified": true, "note": "Server-side runtime for asynchronous services and tools." },
+        { "name": "Express.js", "level": "Proficient", "verified": true, "note": "RESTful routing, middleware pipelines, and API services." },
+        { "name": "REST APIs", "level": "Proficient", "verified": true, "note": "JSON API design, error handling, and client integration." }
       ]
     },
     {
-      "name": "Databases & Storage",
-      "description": "Relational and NoSQL storage engines used across projects.",
+      "name": "Databases",
+      "description": "Document and relational storage management.",
       "skills": [
-        { "name": "MySQL", "level": "Project Experience", "verified": true, "note": "Relational storage in AI Resume Analyser." },
-        { "name": "MongoDB & Mongoose", "level": "Project Experience", "verified": true, "note": "Document store utilized in EduReach platform." }
+        { "name": "MongoDB", "level": "Proficient", "verified": true, "note": "NoSQL document collections, aggregation, and Mongoose integration." },
+        { "name": "MySQL", "level": "Proficient", "verified": true, "note": "Relational schemas, queries, table joins, and normalization." }
       ]
     },
     {
-      "name": "AI & Developer Tooling",
-      "description": "Local LLM runtimes, AI workflows, version control, and development environments.",
+      "name": "AI & Generative AI",
+      "description": "Modern generative models, LLMs, and agentic integrations.",
       "skills": [
-        { "name": "Git & GitHub", "level": "Proficient", "verified": true, "note": "Version control, branching, PRs, and collaborative repos." },
-        { "name": "Ollama & Local LLMs", "level": "Working Knowledge", "verified": true, "note": "Local inference with Llama 3.1 8B." },
-        { "name": "LangChain", "level": "Learning / Project Level", "verified": true, "note": "RAG orchestration in EduReach." },
-        { "name": "VS Code", "level": "Proficient", "verified": true, "note": "Primary IDE for full-stack workflows." },
-        { "name": "Docker", "level": "Learning / Conceptual", "verified": true, "note": "Containerized sandbox environments in DevFlow AI." }
+        { "name": "Generative AI", "level": "Active Exploration", "verified": true, "note": "Prompt engineering, multimodal generation, and context augmentation." },
+        { "name": "LLM-Powered Applications", "level": "Active Exploration", "verified": true, "note": "Integrating LLMs (Llama 3.1, Gemini) with web services." }
+      ]
+    },
+    {
+      "name": "Developer Tools",
+      "description": "Development environments, version control, and testing utilities.",
+      "skills": [
+        { "name": "Git", "level": "Proficient", "verified": true, "note": "Distributed version control, branches, and merge workflows." },
+        { "name": "GitHub", "level": "Proficient", "verified": true, "note": "Remote repositories, pull requests, and collaborative tracking." },
+        { "name": "Postman", "level": "Proficient", "verified": true, "note": "API endpoint testing, request inspection, and collections." },
+        { "name": "Visual Studio Code", "level": "Proficient", "verified": true, "note": "Primary IDE for full-stack and MERN development." }
       ]
     }
   ]

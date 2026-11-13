@@ -2,137 +2,89 @@
   {
     "id": "devflow-ai",
     "title": "DevFlow AI",
-    "subtitle": "Autonomous Code Intelligence & Security Analysis Platform",
+    "subtitle": "Code Intelligence & Security Analysis Platform",
     "status": "In Development",
     "statusType": "in-development",
     "featured": true,
     "githubUrl": "https://github.com/MohammedAffan-786/DevFlow-AI",
     "liveDemoUrl": null,
-    "overview": "DevFlow AI is an architectural framework engineered to automate software quality, security vulnerability auditing, and automated test-case generation through static AST extraction and LLM-assisted reasoning.",
-    "problemStatement": "Engineering teams spend hundreds of hours manually diagnosing static code issues, writing boilerplate regression test suites, and performing repetitive code reviews, frequently letting subtle edge-case race conditions and security vulnerabilities slip into production.",
-    "proposedSolution": "An integrated platform combining AST parsing, static analysis, automated unit-test synthesis, and ephemeral sandbox execution governed by resource quotas to verify tests before creating pull request feedback.",
+    "overview": "DevFlow AI is an AI-powered software engineering and security analysis platform designed to analyze entire code repositories, identify potential issues, and provide actionable insights to developers.",
+    "problemStatement": "Engineering teams spend extensive time diagnosing repository-wide bugs, catching security vulnerabilities before deployment, and reviewing pull requests without automated contextual analysis.",
+    "proposedSolution": "An automated platform combining static code analysis, AI-assisted defect and security-risk identification, and isolated execution pipelines with GitHub webhook integrations.",
     "implementedFeatures": [
-      "Repository architecture structure with modular microservices/monorepo layout",
-      "Express.js & TypeScript API server scaffolding with Zod validation",
-      "Python AI core service scaffolding for static AST inspection",
-      "BullMQ job queue schemas for asynchronous task management",
-      "Isolated container sandbox specifications for safe test execution"
+      "Repository-level code analysis",
+      "AI-assisted defect and security-risk identification",
+      "Static code analysis and dependency insights",
+      "GitHub Apps and webhook integration",
+      "Context-aware pull request reviews",
+      "Asynchronous analysis and test execution pipeline",
+      "Isolated execution environments",
+      "Dashboard for code quality and security insights"
     ],
     "plannedFeatures": [
-      "Cloud-distributed multi-node execution workers",
-      "Dynamic gVisor kernel sandboxing under high concurrent load",
-      "Automated GitHub App webhook-driven inline diff feedback"
+      "Dynamic multi-tenant cloud sandboxing",
+      "Automated automated PR inline-comment feedback bot"
     ],
-    "techStack": ["TypeScript", "Node.js", "Express.js", "Python", "FastAPI", "Redis", "BullMQ", "Docker", "MongoDB"],
-    "architectureNotes": "Frontend UI (React/Vite) communicates via HTTP/WS to a Core API Server (Node.js/Express) which enqueues tasks to Redis/BullMQ. Background workers trigger Python AI Core for AST extraction and ephemeral Docker sandboxes for isolated execution.",
-    "verificationNotice": "Source code repository verified on GitHub. Core architecture and service scaffolds are implemented; full cloud execution pipeline is under active iterative development."
+    "techStack": ["React", "TypeScript", "Express.js", "FastAPI", "MongoDB", "Redis", "BullMQ", "Docker"],
+    "architectureNotes": "React frontend communicates with Express.js and FastAPI services. Redis & BullMQ manage asynchronous repo-ingestion tasks, with Docker providing isolated analysis environments.",
+    "verificationNotice": "Source code repository verified on GitHub (MohammedAffan-786/DevFlow-AI). Architecture and backend services in active development."
   },
   {
     "id": "edureach",
     "title": "EduReach",
-    "subtitle": "Agentic College Information & Guidance Assistant",
+    "subtitle": "Agentic College Chatbot & Guidance Assistant",
     "status": "In Development",
     "statusType": "in-development",
     "featured": true,
     "githubUrl": "https://github.com/MohammedAffan-786/EduReach-Agentic-College-Chatbot",
     "liveDemoUrl": null,
-    "overview": "An AI-powered full-stack academic assistant platform featuring an Agentic RAG chatbot and interactive student portal for admissions, courses, mentors, and campus life.",
-    "problemStatement": "Prospective and current college students struggle to navigate dispersed institutional websites, conflicting syllabus documents, and complex admission criteria across department silos.",
-    "proposedSolution": "A unified student portal backed by an Agentic RAG system that pulls from verified institutional knowledge bases to answer complex inquiries on fees, courses, placements, and campus mentors.",
+    "overview": "EduReach is an AI-powered college assistance platform designed to help students access institutional information through conversational interactions. It uses an AI agent with knowledge retrieval to answer questions about courses, fees, admissions, and placements.",
+    "problemStatement": "Prospective and current college students find it challenging to navigate fragmented college websites, syllabus documents, fee structures, and placement records.",
+    "proposedSolution": "An agentic AI chatbot equipped with knowledge retrieval and tool-calling to provide verified answers about courses, fees, admissions, and campus guidance.",
     "implementedFeatures": [
-      "Node.js 24 + Express 5 backend with TypeScript strict compilation",
-      "React 19 + Vite frontend client styled with Tailwind CSS",
-      "MongoDB & Mongoose schemas for knowledge management and user states",
-      "JWT token authentication and secure password hashing with bcryptjs",
-      "LangChain integration pipeline with Google Gemini LLM API"
+      "Agentic AI chatbot with tool-calling capabilities",
+      "Knowledge retrieval using a college information base",
+      "Student assistance for courses, fees, and admissions",
+      "Placement-related information assistance",
+      "AI voice counselor integration",
+      "REST API integration",
+      "JWT-protected routes"
     ],
     "plannedFeatures": [
-      "Full voice-to-voice counsellor interface ('Ava')",
-      "Automated PDF syllabus ingestion and vector similarity chunking",
-      "Real-time mentor booking scheduling system"
+      "Real-time voice dialogue streaming with Vapi",
+      "Direct mentor appointment booking integration"
     ],
-    "techStack": ["Node.js", "Express.js", "TypeScript", "React 19", "Vite", "Tailwind CSS", "MongoDB", "LangChain", "JWT"],
-    "architectureNotes": "React 19 frontend connects via REST API to Express 5 backend. Server integrates LangChain text splitters and MongoDB vector stores to ground LLM completions on verified campus documentation.",
-    "verificationNotice": "Backend and frontend codebases verified in public GitHub repository."
+    "techStack": ["Python", "Node.js", "React.js", "MongoDB Atlas", "Google Gemini", "Vapi"],
+    "architectureNotes": "React.js frontend interacts with Node.js/Python backend. Google Gemini powers knowledge retrieval against MongoDB Atlas, secured by JWT authentication.",
+    "verificationNotice": "Source code repository verified on GitHub (MohammedAffan-786/EduReach-Agentic-College-Chatbot)."
   },
   {
-    "id": "ai-resume-analyser",
-    "title": "AI Resume Analyser",
-    "subtitle": "NLP-Driven Resume Parser & Domain Recommendation Engine",
-    "status": "Completed",
-    "statusType": "completed",
-    "featured": true,
-    "githubUrl": "https://github.com/MohammedAffan-786/AI-Resume-Analyser",
-    "liveDemoUrl": null,
-    "overview": "A machine learning and natural language processing tool designed to parse resume PDF documents, extract domain capabilities, match candidate skills, and generate tailored career development paths.",
-    "problemStatement": "Candidates often submit generic resumes without understanding how their profile aligns with specific technical domain benchmarks or which skills they need to prioritize.",
-    "proposedSolution": "A streamlined application leveraging NLP extraction to evaluate resumes, classify candidates into target domains, and generate structured skill recommendations with persistent historical tracking.",
-    "implementedFeatures": [
-      "Streamlit interactive web dashboard for single-click PDF resume uploads",
-      "Natural language extraction pipeline using spaCy NLP and PyResparser",
-      "Relational candidate logging and course data tracking with MySQL",
-      "Domain classification logic matching keywords against technical job profiles",
-      "Automated skill gap identification and course recommendation display"
-    ],
-    "plannedFeatures": [
-      "Exportable PDF candidate diagnostic summary cards",
-      "Integration with live job posting APIs for real-time requirement matching"
-    ],
-    "techStack": ["Python", "Streamlit", "spaCy", "NLP", "MySQL", "PyResparser"],
-    "architectureNotes": "Streamlit frontend ingests resume files, triggers Python NLP parsing routines against uploaded text tokens, persists candidate records to a MySQL relational database, and returns dynamic recommendation cards.",
-    "verificationNotice": "Fully verified repository on GitHub with working Python source code and database connection modules."
-  },
-  {
-    "id": "rapidcare",
-    "title": "RapidCare",
-    "subtitle": "Emergency Medical Assistance & Resource Navigation Platform",
-    "status": "In Development",
-    "statusType": "in-development",
-    "featured": false,
-    "githubUrl": null,
-    "liveDemoUrl": null,
-    "overview": "An emergency response assistance platform engineered to provide rapid guidance during medical emergencies, including nearby hospital discovery and first-aid instructional procedures.",
-    "problemStatement": "During critical medical emergencies, individuals frequently experience panic and struggle to locate verified nearby emergency care facilities or actionable step-by-step first-aid guidance.",
-    "proposedSolution": "A lightweight web application offering instantaneous access to crucial emergency protocols, instructional triage media, and geo-located healthcare facility directories.",
-    "implementedFeatures": [
-      "Application architecture with React and Vite frontend foundation",
-      "Emergency situation categorization and triage instructional layout",
-      "Responsive UI built with Tailwind CSS for high-stress mobile usability",
-      "Backend REST structure with Node.js and Express.js"
-    ],
-    "plannedFeatures": [
-      "Live GPS geolocation hospital proximity mapping",
-      "Offline cached emergency protocol guides via service workers",
-      "One-touch emergency helpline dialing integration"
-    ],
-    "techStack": ["React", "Vite", "TypeScript", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Cloudinary"],
-    "architectureNotes": "React + Vite SPA communicating with Node.js/Express backend, with Cloudinary for instructional media delivery and MongoDB for hospital facility records.",
-    "verificationNotice": "Private / local development codebase. Repository is currently maintained locally and awaiting public release."
-  },
-  {
-    "id": "mountainsafe-ai",
-    "title": "MountainSafe AI",
-    "subtitle": "Intelligent Mountain Road Safety & Hazard Prevention Concept",
+    "id": "ai-research-engine",
+    "title": "AI-Powered Research Engine",
+    "subtitle": "Semantic Search & RAG-Based Research Platform",
     "status": "Concept / Planned Development",
     "statusType": "concept",
-    "featured": false,
+    "featured": true,
     "githubUrl": null,
     "liveDemoUrl": null,
-    "overview": "A planned conceptual safety intelligence system designed to model accident hotspots, blind-curve risks, and terrain hazard vulnerabilities in mountainous transit corridors.",
-    "problemStatement": "Mountain highways suffer high fatality rates due to severe blind curves, unpredicted rockfalls, dense fog, and lack of advance situational awareness for commercial and civilian drivers.",
-    "proposedSolution": "A proposed multi-modal intelligence platform synthesizing historical accident reports, elevation contours, and weather radar feeds to compute real-time hazard indexes for mountain routes.",
+    "overview": "An intelligent research platform designed to understand natural-language questions rather than relying only on keyword matching. It aims to retrieve relevant information from indexed web pages and documents, connect related research topics, and generate answers supported by source citations.",
+    "problemStatement": "Traditional search engines rely heavily on literal keywords, failing to understand semantic research intent, synthesize multi-document findings, or trace claims back to verified source citations.",
+    "proposedSolution": "A semantic research platform leveraging vector indexing, knowledge graphs, and Retrieval-Augmented Generation (RAG) to generate grounded research answers with verifiable citations.",
     "implementedFeatures": [
-      "Conceptual system architecture and domain problem research",
-      "Technical specification of required sensor inputs and GIS mapping layers",
-      "Hazard metric categorization framework (blind-curve, rockfall, weather severity)"
+      "Conceptual system architecture and domain requirements definition",
+      "Semantic search query parsing specification",
+      "Data model design for knowledge graph relationships and citation tracking"
     ],
     "plannedFeatures": [
-      "GIS geospatial hazard mapping using OpenStreetMap and elevation data",
-      "Machine learning model training for landslide susceptibility prediction",
-      "Real-time precipitation and fog telemetry API integration"
+      "Semantic search using natural-language queries",
+      "Web and document indexing pipeline",
+      "Vector database for efficient information retrieval (Qdrant)",
+      "Source citations for verifiable answers",
+      "Knowledge graph for exploring relationships between research topics",
+      "RAG-based question answering"
     ],
-    "techStack": ["Python (Planned)", "GIS / Geospatial Data (Planned)", "Machine Learning (Planned)", "OpenStreetMap API (Planned)"],
-    "architectureNotes": "Architecture design envisions an ingest worker aggregating meteorological APIs, road elevation contours, and historical police accident records to render interactive route risk overlays.",
-    "verificationNotice": "STRICT STATUS: Concept / Planned Development. No machine learning models, prediction engines, or live sensor feeds have been implemented yet. Presented as an engineering research initiative."
+    "techStack": ["Python", "FastAPI", "React", "PostgreSQL", "Qdrant"],
+    "architectureNotes": "Envisioned architecture uses FastAPI for API routing, Qdrant vector database for semantic chunk retrieval, PostgreSQL for relational metadata, and React for the research workspace.",
+    "verificationNotice": "STRICT STATUS: Concept / Planned Development. As instructed by Mohammed: 'Project Status: To be confirmed. Do not label it as completed until the application has actually been built and tested.'"
   }
 ]

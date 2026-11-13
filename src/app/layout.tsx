@@ -17,23 +17,28 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Mohammed Affan | Developer Portfolio & AI Engineering",
   description:
-    "Official developer portfolio of Mohammed Affan — Computer Science undergraduate at Sri Siddhartha Institute of Technology, Tumakuru. Explore verified projects in autonomous AI systems (DevFlow AI), agentic assistants (EduReach), and full-stack engineering.",
+    "Official developer portfolio of Mohammed Affan Farooq — Computer Science Engineering student at Sri Siddhartha Institute of Technology, Tumakuru. MERN stack developer and AI-powered application builder.",
   keywords: [
     "Mohammed Affan",
-    "Affan AI",
+    "Mohammed Affan Farooq",
     "DevFlow AI",
     "EduReach",
+    "AI-Powered Research Engine",
     "Computer Science",
     "Sri Siddhartha Institute of Technology",
-    "Full-Stack Developer",
-    "AI Engineer",
+    "SSIT Tumakuru",
+    "MERN Stack Developer",
     "Python",
-    "TypeScript",
+    "JavaScript",
     "React",
-    "Next.js",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "MySQL",
+    "Generative AI",
   ],
-  authors: [{ name: "Mohammed Affan" }],
-  creator: "Mohammed Affan",
+  authors: [{ name: "Mohammed Affan Farooq" }],
+  creator: "Mohammed Affan Farooq",
   metadataBase: new URL("https://affan-portfolio.vercel.app"),
   openGraph: {
     type: "website",
@@ -41,14 +46,14 @@ export const metadata: Metadata = {
     url: "https://affan-portfolio.vercel.app",
     title: "Mohammed Affan | Software Developer & AI Systems",
     description:
-      "Official portfolio of Mohammed Affan. Engineering autonomous developer tooling (DevFlow AI) and agentic RAG systems (EduReach).",
+      "Official portfolio of Mohammed Affan Farooq. Building intelligent applications and exploring practical technology solutions.",
     siteName: "Mohammed Affan Portfolio",
   },
   twitter: {
     card: "summary_large_image",
     title: "Mohammed Affan | Software Developer",
     description:
-      "Computer Science undergraduate at SSIT Tumakuru. Full-stack engineering, AI tooling, and verified projects.",
+      "Computer Science Engineering student at SSIT Tumakuru. MERN stack developer & AI-powered application builder.",
   },
   robots: {
     index: true,

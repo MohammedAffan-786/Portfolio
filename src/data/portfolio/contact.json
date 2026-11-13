@@ -1,13 +1,18 @@
 {
-  "email": "mohammedaffan97121@gmail.com",
+  "name": "Mohammed Affan Farooq",
+  "displayName": "Mohammed Affan",
+  "email": "mohammedaffan971211@gmail.com",
   "linkedin": "https://linkedin.com/in/mdaffan1",
   "github": "https://github.com/MohammedAffan-786",
   "existingPortfolio": "https://mdaffanweb.ccbp.tech",
-  "location": "Bengaluru / Tumakuru, Karnataka, India",
-  "preferredContactMethod": "Email or LinkedIn direct messaging",
+  "location": "Tumakuru, Karnataka, India",
+  "preferredContactMethod": "Email or LinkedIn messaging",
+  "heading": "Have an idea or opportunity? Let's connect.",
+  "description": "I'm always interested in connecting with developers, exploring new technologies, collaborating on meaningful projects, and learning from new opportunities.",
   "openFor": [
+    "Full-Stack & MERN Stack Development",
+    "AI-Powered Application Engineering",
     "Software Engineering Internships",
-    "Open-Source Collaboration",
-    "Academic Research & Engineering Discussions"
+    "Open-Source & Meaningful Projects"
   ]
 }

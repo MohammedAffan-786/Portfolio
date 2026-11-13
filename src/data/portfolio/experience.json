@@ -1,17 +1,17 @@
 {
-  "notice": "Mohammed Affan is currently an undergraduate student actively building practical engineering systems. No commercial full-time or internship employment is claimed.",
+  "notice": "Mohammed Affan Farooq is a Computer Science Engineering student at SSIT actively building full-stack and AI-powered applications.",
   "roles": [
     {
-      "title": "Undergraduate Student & Independent Builder",
-      "organization": "Sri Siddhartha Institute of Technology",
-      "period": "2024 – Present",
+      "title": "Computer Science Engineering Student & Developer",
+      "organization": "Sri Siddhartha Institute of Technology (SSIT)",
+      "period": "2024 – 2027",
       "type": "Academic & Project Engineering",
-      "location": "Tumakuru, Karnataka",
-      "description": "Engaged in core computer science coursework while independently designing and implementing full-stack applications, autonomous developer tooling (DevFlow AI), and agentic RAG assistants (EduReach).",
+      "location": "Tumakuru, Karnataka, India",
+      "description": "Pursuing Bachelor of Engineering in Computer Science while building MERN stack and AI-powered applications including DevFlow AI and EduReach.",
       "highlights": [
-        "Architecting full-stack web applications with React, Next.js, Express, and MongoDB",
-        "Exploring local Large Language Models (Ollama, Llama 3.1) and agentic workflows",
-        "Practicing disciplined Git version control and clean code principles"
+        "Developing full-stack web applications with Python, JavaScript, React, Node.js, and Express",
+        "Exploring Generative AI, LLM-powered applications, and knowledge retrieval",
+        "Managing data architectures using MongoDB and MySQL"
       ]
     }
   ]

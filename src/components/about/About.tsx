@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { GraduationCap, Code2, BrainCircuit, Lightbulb, Compass, Database } from "lucide-react";
+import { GraduationCap, Code2, BrainCircuit, Lightbulb, Compass, Layers } from "lucide-react";
 import type { ProfileData, EducationData } from "@/types";
 
 interface AboutProps {
@@ -13,21 +13,21 @@ export function About({ profile, education }: AboutProps) {
   const pillars = [
     {
       icon: <GraduationCap className="w-5 h-5 text-sky-400" />,
-      title: "Academic Grounding",
+      title: "Academic Background",
       description:
-        "Pursuing Bachelor of Engineering in Computer Science at Sri Siddhartha Institute of Technology, Tumakuru (2024–2027). Building rigorous foundations in Data Structures, Algorithms, DBMS, and Systems.",
+        "Computer Science Engineering student at Sri Siddhartha Institute of Technology (SSIT), Tumakuru (2024–2027). Building strong fundamentals in data structures, algorithms, databases, and systems.",
     },
     {
-      icon: <BrainCircuit className="w-5 h-5 text-indigo-400" />,
-      title: "AI & Full-Stack Systems",
+      icon: <Layers className="w-5 h-5 text-indigo-400" />,
+      title: "MERN & Full-Stack Development",
       description:
-        "Intrigued by modern generative models, Agentic RAG pipelines, and automated developer tooling. Dedicated to building reliable, deterministic systems that harness LLMs practically rather than cosmetically.",
+        "Developing web applications using JavaScript, React.js, Node.js, Express.js, and MongoDB. Focused on clean modular architectures and reliable RESTful APIs.",
     },
     {
-      icon: <Lightbulb className="w-5 h-5 text-amber-400" />,
-      title: "First-Principles Learning",
+      icon: <BrainCircuit className="w-5 h-5 text-emerald-400" />,
+      title: "AI-Powered Applications",
       description:
-        "Passionate about demystifying how compilers parse ASTs, how container isolation operates under cgroups/gVisor, and how database engines query indexes efficiently.",
+        "Passionate about practical integrations of Generative AI and LLMs. Dedicated to building meaningful solutions like DevFlow AI and EduReach that solve real-world problems.",
     },
   ];
 
@@ -41,13 +41,13 @@ export function About({ profile, education }: AboutProps) {
         <div className="flex flex-col items-start space-y-3 mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-zinc-900 border border-white/[0.08] text-xs font-mono text-sky-400">
             <Compass className="w-3.5 h-3.5" />
-            01 &bull; ABOUT THE DEVELOPER
+            01 &bull; ABOUT ME
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-            Engineering Mindset &amp; Foundations
+            Personal Introduction &amp; Interests
           </h2>
           <p className="text-zinc-400 text-sm sm:text-base max-w-2xl">
-            A transparent overview of my academic context, technical philosophy, and what drives my pursuit of software development.
+            Computer Science Engineering student interested in full-stack development and AI-powered applications.
           </p>
         </div>
 
@@ -56,15 +56,11 @@ export function About({ profile, education }: AboutProps) {
           {/* Main Narrative Card */}
           <div className="lg:col-span-6 p-7 sm:p-8 rounded-2xl bg-zinc-900/40 border border-white/[0.07] backdrop-blur-md space-y-6">
             <h3 className="text-xl font-semibold text-white tracking-tight">
-              Curiosity-driven software development
+              Building meaningful applications through continuous learning
             </h3>
 
             <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
               {profile.about}
-            </p>
-
-            <p className="text-sm text-zinc-400 leading-relaxed">
-              Rather than merely gluing APIs together, I enjoy diving deep into how systems work under the hood: how static analyzers evaluate control flow, how sandboxed runtimes isolate untrusted code execution, and how retrieval-augmented generation can deliver reliable, factual knowledge.
             </p>
 
             <div className="pt-4 border-t border-white/[0.06] flex flex-wrap gap-4 text-xs font-mono text-zinc-400">
@@ -75,6 +71,10 @@ export function About({ profile, education }: AboutProps) {
               <div className="border-l border-white/[0.08] pl-4">
                 <span className="text-zinc-400 block text-[11px]">DEGREE</span>
                 <span className="text-zinc-200">B.E. Computer Science</span>
+              </div>
+              <div className="border-l border-white/[0.08] pl-4">
+                <span className="text-zinc-400 block text-[11px]">INSTITUTION</span>
+                <span className="text-zinc-200">SSIT Tumakuru</span>
               </div>
               <div className="border-l border-white/[0.08] pl-4">
                 <span className="text-zinc-400 block text-[11px]">TIMELINE</span>
