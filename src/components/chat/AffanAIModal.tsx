@@ -74,7 +74,7 @@ export function AffanAIModal({ isOpen, onClose }: AffanAIModalProps) {
             id: "welcome",
             role: "assistant",
             content:
-              "Hello! I am **Affan AI**, Mohammed's personal AI portfolio representative. I can answer inquiries regarding his verified education, technical skills, projects, and architecture designs based strictly on factual portfolio data.\n\nHow can I help you today?",
+              "Hello! I am Affan AI, Mohammed Affan Farooq's portfolio assistant. I can answer any questions about his education, technical skills, and software engineering projects.\n\nHow can I help you today?",
             timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
           },
         ]);

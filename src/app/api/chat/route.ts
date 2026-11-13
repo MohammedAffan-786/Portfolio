@@ -1,15 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAIConfig, checkOllamaHealth, streamOllamaChat, ChatMessageInput } from "@/lib/ai/provider";
 import { generateAffanAISystemPrompt } from "@/lib/ai/systemPrompt";
-import { generateKnowledgeResponse } from "@/lib/ai/fallbackEngine";
+import { generateConversationalResponse } from "@/lib/ai/conversationalEngine";
 
 export const dynamic = "force-dynamic";
+
+function cleanOutputText(text: string): string {
+  return text
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1: $2")
+    .replace(/[*#`_~]/g, "")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
 
 export async function POST(req: NextRequest) {
   try {
     const config = getAIConfig();
 
-    // Parse and validate request
     const body = await req.json().catch(() => null);
     if (!body || !Array.isArray(body.messages) || body.messages.length === 0) {
       return NextResponse.json(
@@ -35,8 +42,11 @@ export async function POST(req: NextRequest) {
     const isOllamaAlive = await checkOllamaHealth(config.baseUrl);
     if (isOllamaAlive) {
       try {
-        const systemPrompt = generateAffanAISystemPrompt();
-        const stream = await streamOllamaChat(messages, config, systemPrompt);
+        const strictCleanPrompt =
+          generateAffanAISystemPrompt() +
+          "\nCRITICAL FORMATTING INSTRUCTION: Do NOT use markdown symbols such as asterisks (*), hashtags (#), or backticks. Write in clean, articulate plain English prose and clear paragraphs without any special formatting symbols.";
+
+        const stream = await streamOllamaChat(messages, config, strictCleanPrompt);
 
         return new Response(stream, {
           headers: {
@@ -46,22 +56,22 @@ export async function POST(req: NextRequest) {
           },
         });
       } catch (err) {
-        console.warn("Ollama streaming failed, falling back to Knowledge Engine", err);
+        console.warn("Ollama streaming error, falling back to conversational engine", err);
       }
     }
 
-    // Knowledge Engine fallback (streams answer smoothly so UI gets live typed response)
-    const answer = generateKnowledgeResponse(lastMessage.content);
+    // Knowledge & Conversational Engine (clean, articulate plain text without * or #)
+    const rawAnswer = generateConversationalResponse(lastMessage.content, messages);
+    const cleanAnswer = cleanOutputText(rawAnswer);
     const encoder = new TextEncoder();
 
     const stream = new ReadableStream({
       async start(controller) {
-        const words = answer.split(" ");
+        const words = cleanAnswer.split(" ");
         for (let i = 0; i < words.length; i++) {
           const chunk = (i === 0 ? "" : " ") + words[i];
           controller.enqueue(encoder.encode(chunk));
-          // Small artificial delay for natural streaming feel
-          await new Promise((resolve) => setTimeout(resolve, 20));
+          await new Promise((resolve) => setTimeout(resolve, 18));
         }
         controller.close();
       },
