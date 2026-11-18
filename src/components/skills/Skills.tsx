@@ -66,7 +66,7 @@ export function Skills({ skillsData }: SkillsProps) {
                     className={`relative z-10 transition-colors duration-200 ${
                       isActive
                         ? "text-white"
-                        : "text-slate-700 hover:text-slate-900 bg-white border border-slate-200/90 hover:bg-slate-50 px-3.5 py-1 rounded-full shadow-sm"
+                        : "text-slate-700 hover:text-slate-900 bg-white/80 border border-white/90 backdrop-blur-md hover:bg-white px-3.5 py-1 rounded-full shadow-sm"
                     }`}
                   >
                     {cat}
@@ -109,7 +109,7 @@ export function Skills({ skillsData }: SkillsProps) {
                       {category.skills.map((skill) => (
                         <div
                           key={skill.name}
-                          className="p-2.5 rounded-xl bg-slate-50/70 border border-slate-200/60 hover:bg-white hover:border-slate-300 transition-colors"
+                          className="p-2.5 rounded-xl bg-white/70 border border-white/90 shadow-[0_2px_8px_rgba(0,62,156,0.02),inset_0_1px_1px_rgba(255,255,255,1)] hover:bg-white hover:border-blue-200/80 transition-all"
                         >
                           <div className="flex items-center justify-between mb-0.5">
                             <span className="text-xs sm:text-sm font-bold text-slate-900">

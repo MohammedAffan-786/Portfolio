@@ -39,13 +39,16 @@ export function Contact({ contact }: ContactProps) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-40px" }}
         transition={{ duration: 0.6 }}
-        className="relative mx-auto max-w-5xl rounded-[28px] sm:rounded-[36px] overflow-hidden border border-white/80 bg-gradient-to-b from-white/90 via-white/70 to-white/50 backdrop-blur-2xl backdrop-saturate-150 p-6 sm:p-10 lg:p-12 shadow-[0_20px_50px_rgba(0,62,156,0.06),inset_0_1px_2px_0_rgba(255,255,255,0.95)]"
+        className="relative mx-auto max-w-5xl rounded-[28px] sm:rounded-[36px] overflow-hidden border border-white/90 bg-gradient-to-b from-white/90 via-white/75 to-white/60 backdrop-blur-3xl backdrop-saturate-180 p-6 sm:p-10 lg:p-12 shadow-[0_20px_60px_-15px_rgba(0,62,156,0.08),inset_0_1.5px_2px_0_rgba(255,255,255,1),inset_0_-1px_1px_rgba(0,62,156,0.03)]"
       >
+        {/* Glossy Top Edge Highlight */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-white to-transparent opacity-95" />
+
         {/* Ambient Top Light Beam with Breathing Glow */}
         <motion.div
-          animate={{ opacity: [0.5, 0.85, 0.5], scale: [1, 1.04, 1] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-40 bg-gradient-to-b from-[#5594f2]/20 via-[#003e9c]/10 to-transparent blur-3xl pointer-events-none"
+          animate={{ opacity: [0.55, 0.9, 0.55], scale: [1, 1.05, 1] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-44 bg-gradient-to-b from-[#60a5fa]/25 via-[#003e9c]/10 to-transparent blur-3xl pointer-events-none"
         />
 
         <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center text-center space-y-5">
@@ -74,24 +77,24 @@ export function Contact({ contact }: ContactProps) {
           {/* Main Action Buttons with Glossy Effects */}
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <motion.a
-              whileHover={{ scale: 1.04, y: -2 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.96 }}
               href={`mailto:${contact.email}?subject=Hello%20Mohammed%20Affan%20-%20Opportunity%20/%20Collaboration`}
-              className="relative overflow-hidden inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-white bg-[#003e9c] hover:bg-[#0052cc] shadow-[0_4px_20px_rgba(0,62,156,0.3),inset_0_1px_0_rgba(255,255,255,0.3)] transition-all group"
+              className="relative overflow-hidden inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-[#002b66] via-[#003e9c] to-[#0052cc] shadow-[0_8px_25px_rgba(0,62,156,0.35),inset_0_1px_1px_rgba(255,255,255,0.35)] hover:shadow-[0_12px_32px_rgba(0,62,156,0.45),inset_0_1px_1px_rgba(255,255,255,0.5)] transition-all group"
             >
               <span className="relative z-10 flex items-center gap-2">
                 <Send className="w-3.5 h-3.5" />
                 <span>Compose Email Directly</span>
               </span>
-              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 pointer-events-none" />
+              <div className="absolute inset-0 -translate-x-full group-hover:animate-shimmer bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none" />
             </motion.a>
 
             <motion.button
-              whileHover={{ scale: 1.04, y: -2 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.96 }}
               type="button"
               onClick={copyEmail}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-bold text-slate-700 bg-white/80 hover:bg-white border border-white/90 shadow-[0_4px_16px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.9)] backdrop-blur-md transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-bold text-slate-800 bg-white/80 hover:bg-white border border-white/95 shadow-[0_4px_16px_rgba(0,62,156,0.06),inset_0_1.5px_2px_rgba(255,255,255,1)] hover:border-blue-200/80 backdrop-blur-xl transition-all"
             >
               {copied ? (
                 <>
@@ -116,9 +119,9 @@ export function Contact({ contact }: ContactProps) {
               href={contact.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-4 rounded-xl bg-white/70 hover:bg-white/90 border border-white/80 backdrop-blur-xl shadow-[0_4px_16px_rgba(0,0,0,0.02),inset_0_1px_1px_rgba(255,255,255,0.9)] transition-all flex flex-col items-center text-center space-y-1.5"
+              className="group p-4 rounded-2xl bg-white/75 hover:bg-white/90 border border-white/90 backdrop-blur-2xl shadow-[0_4px_20px_rgba(0,62,156,0.04),inset_0_1.5px_2px_rgba(255,255,255,1)] hover:border-blue-200/80 transition-all flex flex-col items-center text-center space-y-1.5"
             >
-              <div className="p-2 rounded-full bg-blue-50 text-[#003e9c] border border-blue-200 group-hover:scale-105 transition-transform">
+              <div className="p-2.5 rounded-full bg-blue-50 text-[#003e9c] border border-blue-200 group-hover:scale-105 transition-transform">
                 <Linkedin className="w-4 h-4" />
               </div>
               <span className="text-xs sm:text-sm font-bold text-slate-900 flex items-center gap-1">
@@ -135,9 +138,9 @@ export function Contact({ contact }: ContactProps) {
               href={contact.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-4 rounded-xl bg-white/70 hover:bg-white/90 border border-white/80 backdrop-blur-xl shadow-[0_4px_16px_rgba(0,0,0,0.02),inset_0_1px_1px_rgba(255,255,255,0.9)] transition-all flex flex-col items-center text-center space-y-1.5"
+              className="group p-4 rounded-2xl bg-white/75 hover:bg-white/90 border border-white/90 backdrop-blur-2xl shadow-[0_4px_20px_rgba(0,62,156,0.04),inset_0_1.5px_2px_rgba(255,255,255,1)] hover:border-blue-200/80 transition-all flex flex-col items-center text-center space-y-1.5"
             >
-              <div className="p-2 rounded-full bg-slate-100 text-slate-800 border border-slate-200 group-hover:scale-105 transition-transform">
+              <div className="p-2.5 rounded-full bg-slate-100 text-slate-800 border border-slate-200 group-hover:scale-105 transition-transform">
                 <Github className="w-4 h-4" />
               </div>
               <span className="text-xs sm:text-sm font-bold text-slate-900 flex items-center gap-1">
@@ -150,29 +153,14 @@ export function Contact({ contact }: ContactProps) {
             {/* Location */}
             <motion.div
               whileHover={{ y: -4, scale: 1.02 }}
-              className="p-4 rounded-xl bg-white/70 border border-white/80 backdrop-blur-xl shadow-[0_4px_16px_rgba(0,0,0,0.02),inset_0_1px_1px_rgba(255,255,255,0.9)] flex flex-col items-center text-center space-y-1.5"
+              className="p-4 rounded-2xl bg-white/75 border border-white/90 backdrop-blur-2xl shadow-[0_4px_20px_rgba(0,62,156,0.04),inset_0_1.5px_2px_rgba(255,255,255,1)] flex flex-col items-center text-center space-y-1.5"
             >
-              <div className="p-2 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200">
+              <div className="p-2.5 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200">
                 <MapPin className="w-4 h-4" />
               </div>
               <span className="text-xs sm:text-sm font-bold text-slate-900">Location</span>
               <span className="text-[11px] text-slate-500 font-mono">{contact.location}</span>
             </motion.div>
-          </div>
-
-          {/* Open For Badges */}
-          <div className="pt-4 border-t border-slate-200/60 w-full flex flex-col sm:flex-row items-center justify-between gap-2.5 text-xs text-slate-500">
-            <span className="font-bold text-slate-700 text-xs">Available For:</span>
-            <div className="flex flex-wrap gap-1.5 justify-center">
-              {contact.openFor.map((item) => (
-                <span
-                  key={item}
-                  className="px-3 py-0.5 rounded-full bg-white/80 border border-white/90 text-slate-700 font-mono text-[10px] font-medium shadow-sm backdrop-blur-md"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
           </div>
         </div>
       </motion.div>

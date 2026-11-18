@@ -57,7 +57,7 @@ export function ResumeModal({ isOpen, onClose, profile, education, skills }: Res
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", stiffness: 350, damping: 28 }}
-            className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white border border-slate-200 rounded-[28px] shadow-2xl p-6 sm:p-8 space-y-5 text-slate-800"
+            className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white/95 backdrop-blur-3xl backdrop-saturate-180 border border-white/90 rounded-[28px] shadow-[0_25px_70px_rgba(0,62,156,0.12),inset_0_1.5px_2px_rgba(255,255,255,1)] p-6 sm:p-8 space-y-5 text-slate-800"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}

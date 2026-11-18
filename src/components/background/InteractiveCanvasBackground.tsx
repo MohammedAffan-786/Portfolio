@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 interface Particle {
   x: number;
@@ -10,10 +11,12 @@ interface Particle {
   size: number;
   alpha: number;
   baseAlpha: number;
+  color: string;
 }
 
 export function InteractiveCanvasBackground() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const [mousePos, setMousePos] = useState({ x: -1000, y: -1000 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -40,35 +43,46 @@ export function InteractiveCanvasBackground() {
     const mouse = {
       x: -1000,
       y: -1000,
-      radius: 140,
+      radius: 160,
     };
 
     const handleMouseMove = (e: MouseEvent) => {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
+      setMousePos({ x: e.clientX, y: e.clientY });
     };
 
     const handleMouseLeave = () => {
       mouse.x = -1000;
       mouse.y = -1000;
+      setMousePos({ x: -1000, y: -1000 });
     };
 
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseleave", handleMouseLeave);
 
-    const particleCount = Math.min(Math.floor((width * height) / 22000), 55);
+    const particleColors = [
+      "rgba(0, 62, 156,",     // Royal sapphire
+      "rgba(59, 130, 246,",   // Sky blue
+      "rgba(99, 102, 241,",   // Indigo accent
+      "rgba(16, 185, 129,",   // Subtle emerald
+    ];
+
+    const particleCount = Math.min(Math.floor((width * height) / 26000), 50);
     const particles: Particle[] = [];
 
     for (let i = 0; i < particleCount; i++) {
       const baseAlpha = Math.random() * 0.35 + 0.15;
+      const color = particleColors[Math.floor(Math.random() * particleColors.length)];
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.35,
-        vy: (Math.random() - 0.5) * 0.35,
-        size: Math.random() * 1.8 + 0.8,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        size: Math.random() * 2 + 0.8,
         alpha: baseAlpha,
         baseAlpha,
+        color,
       });
     }
 
@@ -100,17 +114,17 @@ export function InteractiveCanvasBackground() {
         const dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist < mouse.radius) {
-          const force = (1 - dist / mouse.radius) * 1.2;
+          const force = (1 - dist / mouse.radius) * 1.5;
           p1.x -= (dx / dist) * force;
           p1.y -= (dy / dist) * force;
-          p1.alpha = Math.min(0.8, p1.baseAlpha + 0.3);
+          p1.alpha = Math.min(0.85, p1.baseAlpha + 0.35);
         } else {
           p1.alpha = p1.baseAlpha;
         }
 
         ctx.beginPath();
         ctx.arc(p1.x, p1.y, p1.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 62, 156, ${p1.alpha * 0.6})`;
+        ctx.fillStyle = `${p1.color} ${p1.alpha * 0.65})`;
         ctx.fill();
 
         for (let j = i + 1; j < particles.length; j++) {
@@ -119,13 +133,13 @@ export function InteractiveCanvasBackground() {
           const cdy = p1.y - p2.y;
           const cdist = Math.sqrt(cdx * cdx + cdy * cdy);
 
-          if (cdist < 110) {
-            const lineAlpha = (1 - cdist / 110) * 0.12;
+          if (cdist < 125) {
+            const lineAlpha = (1 - cdist / 125) * 0.14;
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
             ctx.strokeStyle = `rgba(0, 62, 156, ${lineAlpha})`;
-            ctx.lineWidth = 0.8;
+            ctx.lineWidth = 0.75;
             ctx.stroke();
           }
         }
@@ -147,21 +161,104 @@ export function InteractiveCanvasBackground() {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
-      {/* Radiant light atmospheric lighting */}
-      <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1100px] h-[650px] bg-gradient-to-b from-[#5594f2]/10 via-[#003e9c]/5 to-transparent blur-[160px] pointer-events-none rounded-full" />
-      <div className="absolute top-[35%] right-[-10%] w-[700px] h-[700px] bg-gradient-to-br from-[#003e9c]/6 via-[#5594f2]/8 to-transparent blur-[180px] pointer-events-none rounded-full" />
-      <div className="absolute bottom-[-10%] left-[-10%] w-[750px] h-[750px] bg-gradient-to-tr from-[#003e9c]/5 via-[#5594f2]/7 to-transparent blur-[190px] pointer-events-none rounded-full" />
+      {/* 1. Luminous Base Atmospheric Gradients (Ultra-light, Pure Daytime Aesthetic) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#f6f9fe] via-[#f9fbff] to-[#f4f7fc]" />
 
-      {/* Subtle technical grid for crisp light aesthetic */}
+      {/* 2. Organic Floating Aurora Glow Spheres with Non-Linear Floating Physics */}
+      <motion.div
+        animate={{
+          x: [0, 45, -30, 0],
+          y: [0, -35, 25, 0],
+          scale: [1, 1.08, 0.96, 1],
+        }}
+        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-[-8%] left-[10%] w-[900px] h-[650px] bg-gradient-to-br from-[#60a5fa]/18 via-[#3b82f6]/12 to-transparent blur-[140px] rounded-full pointer-events-none"
+      />
+
+      <motion.div
+        animate={{
+          x: [0, -40, 30, 0],
+          y: [0, 40, -25, 0],
+          scale: [1, 0.94, 1.06, 1],
+        }}
+        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        className="absolute top-[28%] right-[-5%] w-[850px] h-[750px] bg-gradient-to-bl from-[#818cf8]/14 via-[#60a5fa]/10 to-transparent blur-[160px] rounded-full pointer-events-none"
+      />
+
+      <motion.div
+        animate={{
+          x: [0, 30, -35, 0],
+          y: [0, -30, 35, 0],
+          scale: [1, 1.06, 0.95, 1],
+        }}
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+        className="absolute bottom-[-5%] left-[5%] w-[800px] h-[700px] bg-gradient-to-tr from-[#38bdf8]/15 via-[#a7f3d0]/10 to-transparent blur-[150px] rounded-full pointer-events-none"
+      />
+
+      {/* 3. Aerodynamic Aviation Wave Streamlines (Creative Light Graphic Element) */}
+      <svg
+        className="absolute inset-0 w-full h-full opacity-[0.065] pointer-events-none"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 900"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M-100,200 C300,100 600,350 1000,150 C1250,50 1450,220 1600,180"
+          fill="none"
+          stroke="url(#aerowave-gradient-1)"
+          strokeWidth="2.5"
+          strokeDasharray="8 6"
+        />
+        <path
+          d="M-50,450 C350,300 700,600 1100,400 C1350,300 1500,480 1650,420"
+          fill="none"
+          stroke="url(#aerowave-gradient-2)"
+          strokeWidth="2"
+        />
+        <path
+          d="M-80,700 C280,580 620,820 1020,680 C1280,600 1480,740 1620,700"
+          fill="none"
+          stroke="url(#aerowave-gradient-1)"
+          strokeWidth="1.8"
+          strokeDasharray="6 4"
+        />
+        <defs>
+          <linearGradient id="aerowave-gradient-1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#003e9c" stopOpacity="0.8" />
+            <stop offset="50%" stopColor="#3b82f6" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="#60a5fa" stopOpacity="0.2" />
+          </linearGradient>
+          <linearGradient id="aerowave-gradient-2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#0284c7" stopOpacity="0.3" />
+            <stop offset="50%" stopColor="#003e9c" stopOpacity="0.7" />
+            <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.3" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      {/* 4. Architectural Precision Dot Matrix Blueprint Pattern */}
       <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        className="absolute inset-0 opacity-[0.032] pointer-events-none"
         style={{
-          backgroundImage: `linear-gradient(to right, rgba(0, 62, 156, 0.4) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 62, 156, 0.4) 1px, transparent 1px)`,
-          backgroundSize: "64px 64px",
+          backgroundImage: `radial-gradient(rgba(0, 62, 156, 0.75) 1.2px, transparent 1.2px)`,
+          backgroundSize: "32px 32px",
         }}
       />
 
-      {/* Live Particle Canvas */}
+      {/* 5. Dynamic Cursor Aura Reflection */}
+      {mousePos.x > -500 && (
+        <div
+          className="absolute w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full pointer-events-none transition-transform duration-75 ease-out"
+          style={{
+            left: `${mousePos.x}px`,
+            top: `${mousePos.y}px`,
+            background:
+              "radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(96, 165, 250, 0.03) 40%, transparent 70%)",
+          }}
+        />
+      )}
+
+      {/* 6. Live Constellation Particle Canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full block" />
     </div>
   );

@@ -68,7 +68,7 @@ export function Navbar({ githubUrl, linkedinUrl, email }: NavbarProps) {
         transition={{ duration: 0.5, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           scrolled
-            ? "bg-white/85 backdrop-blur-xl border-b border-slate-200/80 py-3 shadow-[0_4px_20px_rgba(0,0,0,0.04)]"
+            ? "bg-white/80 backdrop-blur-2xl backdrop-saturate-180 border-b border-white/80 py-3 shadow-[0_10px_30px_rgba(0,62,156,0.04),inset_0_-1px_0_rgba(255,255,255,0.9)]"
             : "bg-transparent py-5"
         }`}
       >
@@ -86,7 +86,7 @@ export function Navbar({ githubUrl, linkedinUrl, email }: NavbarProps) {
             </Link>
 
             {/* Desktop Navigation Links Pill Container with Sliding Active Pill */}
-            <nav className="hidden md:flex items-center space-x-1 bg-white/80 border border-slate-200/80 rounded-full p-1 backdrop-blur-md shadow-sm">
+            <nav className="hidden md:flex items-center space-x-1 bg-white/75 border border-white/90 rounded-full p-1 backdrop-blur-2xl backdrop-saturate-180 shadow-[0_4px_20px_rgba(0,62,156,0.04),inset_0_1px_1.5px_rgba(255,255,255,1)]">
               {navLinks.map((link) => {
                 const id = link.href.replace("#", "");
                 const isActive = activeSection === id;

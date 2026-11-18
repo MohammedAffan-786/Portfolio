@@ -45,13 +45,16 @@ export function Hero({ profile, education, onOpenResumeModal }: HeroProps) {
         initial="hidden"
         animate="visible"
         variants={containerVariants}
-        className="relative mx-auto max-w-5xl rounded-[28px] sm:rounded-[36px] overflow-hidden border border-white/80 bg-gradient-to-b from-white/90 via-white/70 to-white/50 backdrop-blur-2xl backdrop-saturate-150 shadow-[0_20px_50px_rgba(0,62,156,0.06),inset_0_1px_2px_0_rgba(255,255,255,0.95)] p-6 sm:p-10 lg:p-14"
+        className="relative mx-auto max-w-5xl rounded-[28px] sm:rounded-[36px] overflow-hidden border border-white/90 bg-gradient-to-b from-white/90 via-white/75 to-white/60 backdrop-blur-3xl backdrop-saturate-180 shadow-[0_20px_60px_-15px_rgba(0,62,156,0.08),inset_0_1.5px_2px_0_rgba(255,255,255,1),inset_0_-1px_1px_rgba(0,62,156,0.03)] p-6 sm:p-10 lg:p-14"
       >
+        {/* Glossy Top Edge Highlight */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-white to-transparent opacity-95" />
+
         {/* Ambient Top Light Beam with Breathing Animation */}
         <motion.div
-          animate={{ opacity: [0.5, 0.85, 0.5], scale: [1, 1.05, 1] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-44 bg-gradient-to-b from-[#5594f2]/20 via-[#003e9c]/10 to-transparent blur-3xl pointer-events-none"
+          animate={{ opacity: [0.55, 0.9, 0.55], scale: [1, 1.06, 1] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-48 bg-gradient-to-b from-[#60a5fa]/25 via-[#003e9c]/10 to-transparent blur-3xl pointer-events-none"
         />
 
         {/* Subtle grid line accents */}
@@ -83,20 +86,20 @@ export function Hero({ profile, education, onOpenResumeModal }: HeroProps) {
             <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.96 }}>
               <Link
                 href="#projects"
-                className="relative overflow-hidden inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-white bg-[#003e9c] hover:bg-[#0052cc] shadow-[0_4px_20px_rgba(0,62,156,0.3),inset_0_1px_0_rgba(255,255,255,0.3)] transition-all group"
+                className="relative overflow-hidden inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-[#002b66] via-[#003e9c] to-[#0052cc] shadow-[0_8px_25px_rgba(0,62,156,0.35),inset_0_1px_1px_rgba(255,255,255,0.35)] hover:shadow-[0_12px_32px_rgba(0,62,156,0.45),inset_0_1px_1px_rgba(255,255,255,0.5)] transition-all group"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   <span>Explore My Projects</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
-                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 pointer-events-none" />
+                <div className="absolute inset-0 -translate-x-full group-hover:animate-shimmer bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none" />
               </Link>
             </motion.div>
 
             <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.96 }}>
               <Link
                 href="#contact"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-bold text-slate-700 bg-white/80 hover:bg-white border border-white/90 shadow-[0_4px_16px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.9)] backdrop-blur-md transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-bold text-slate-800 bg-white/80 hover:bg-white border border-white/95 shadow-[0_4px_16px_rgba(0,62,156,0.06),inset_0_1.5px_2px_rgba(255,255,255,1)] hover:border-blue-200/80 backdrop-blur-xl transition-all"
               >
                 <Mail className="w-3.5 h-3.5 text-[#003e9c]" />
                 <span>Let&apos;s Connect</span>
@@ -108,7 +111,7 @@ export function Hero({ profile, education, onOpenResumeModal }: HeroProps) {
               whileTap={{ scale: 0.96 }}
               type="button"
               onClick={onOpenResumeModal}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-bold text-[#003e9c] bg-blue-50/70 hover:bg-blue-100/70 border border-blue-200/60 shadow-[0_4px_16px_rgba(0,62,156,0.04),inset_0_1px_1px_rgba(255,255,255,0.9)] backdrop-blur-md transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-bold text-[#003e9c] bg-blue-50/80 hover:bg-blue-100/90 border border-blue-200/70 shadow-[0_4px_16px_rgba(0,62,156,0.06),inset_0_1.5px_2px_rgba(255,255,255,1)] backdrop-blur-xl transition-all"
             >
               <FileText className="w-3.5 h-3.5 text-[#003e9c]" />
               <span>View Verified CV</span>

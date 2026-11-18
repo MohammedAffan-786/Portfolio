@@ -69,7 +69,7 @@ export function Projects({ projects }: ProjectsProps) {
                     className={`relative z-10 transition-colors duration-200 ${
                       isActive
                         ? "text-white"
-                        : "text-slate-700 hover:text-slate-900 bg-white border border-slate-200/90 hover:bg-slate-50 px-3.5 py-1 rounded-full shadow-sm"
+                        : "text-slate-700 hover:text-slate-900 bg-white/80 border border-white/90 backdrop-blur-md hover:bg-white px-3.5 py-1 rounded-full shadow-sm"
                     }`}
                   >
                     {opt}
@@ -146,13 +146,13 @@ export function Projects({ projects }: ProjectsProps) {
                         {project.techStack.slice(0, 4).map((tech) => (
                           <span
                             key={tech}
-                            className="px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-slate-100 text-slate-700 border border-slate-200/80"
+                            className="px-2 py-0.5 rounded-lg text-[10px] font-mono font-medium bg-white/80 text-slate-700 border border-white/95 shadow-[0_1px_3px_rgba(0,62,156,0.03)]"
                           >
                             {tech}
                           </span>
                         ))}
                         {project.techStack.length > 4 && (
-                          <span className="px-1.5 py-0.5 rounded text-[9px] font-mono text-slate-500 bg-slate-50 border border-slate-200/60">
+                          <span className="px-1.5 py-0.5 rounded-lg text-[9px] font-mono text-slate-500 bg-white/60 border border-white/80">
                             +{project.techStack.length - 4}
                           </span>
                         )}

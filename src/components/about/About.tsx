@@ -78,21 +78,21 @@ export function About({ profile, education }: AboutProps) {
                 {profile.about}
               </p>
 
-              <div className="pt-4 border-t border-slate-100 grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs font-mono">
-                <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/70">
-                  <span className="text-slate-500 block text-[10px] uppercase font-semibold">Location</span>
+              <div className="pt-4 border-t border-slate-200/60 grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs font-mono">
+                <div className="p-2.5 rounded-xl bg-white/70 border border-white/90 shadow-[0_2px_8px_rgba(0,62,156,0.03),inset_0_1px_1px_rgba(255,255,255,1)]">
+                  <span className="text-slate-400 block text-[10px] uppercase font-semibold">Location</span>
                   <span className="text-slate-900 font-bold text-xs truncate block">{profile.location}</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/70">
-                  <span className="text-slate-500 block text-[10px] uppercase font-semibold">Degree</span>
+                <div className="p-2.5 rounded-xl bg-white/70 border border-white/90 shadow-[0_2px_8px_rgba(0,62,156,0.03),inset_0_1px_1px_rgba(255,255,255,1)]">
+                  <span className="text-slate-400 block text-[10px] uppercase font-semibold">Degree</span>
                   <span className="text-slate-900 font-bold text-xs">B.E. CSE</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/70">
-                  <span className="text-slate-500 block text-[10px] uppercase font-semibold">Institution</span>
+                <div className="p-2.5 rounded-xl bg-white/70 border border-white/90 shadow-[0_2px_8px_rgba(0,62,156,0.03),inset_0_1px_1px_rgba(255,255,255,1)]">
+                  <span className="text-slate-400 block text-[10px] uppercase font-semibold">Institution</span>
                   <span className="text-slate-900 font-bold text-xs truncate block">SSIT</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/70">
-                  <span className="text-slate-500 block text-[10px] uppercase font-semibold">Timeline</span>
+                <div className="p-2.5 rounded-xl bg-white/70 border border-white/90 shadow-[0_2px_8px_rgba(0,62,156,0.03),inset_0_1px_1px_rgba(255,255,255,1)]">
+                  <span className="text-slate-400 block text-[10px] uppercase font-semibold">Timeline</span>
                   <span className="text-slate-900 font-bold text-xs">{education.timeline}</span>
                 </div>
               </div>
