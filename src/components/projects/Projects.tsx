@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FolderGit2, Github, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { SpotlightCard } from "@/components/ui/SpotlightCard";
 import type { ProjectItem } from "@/types";
 import { ProjectModal } from "./ProjectModal";
 
@@ -14,12 +15,11 @@ export function Projects({ projects }: ProjectsProps) {
   const [selectedFilter, setSelectedFilter] = useState<string>("All");
   const [activeModalProject, setActiveModalProject] = useState<ProjectItem | null>(null);
 
-  const filterOptions = ["All", "Completed", "In Development"];
+  const filterOptions = ["All", "Completed"];
 
   const filteredProjects = projects.filter((project) => {
     if (selectedFilter === "All") return true;
     if (selectedFilter === "Completed") return project.statusType === "completed";
-    if (selectedFilter === "In Development") return project.statusType === "in-development";
     return true;
   });
 
@@ -80,7 +80,7 @@ export function Projects({ projects }: ProjectsProps) {
           </div>
         </motion.div>
 
-        {/* Projects Grid (Medium Sized Cards - Compact & Proportional) */}
+        {/* Projects Grid (Medium Sized Spotlight Cards - Dynamic Mouse Glow) */}
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <AnimatePresence>
             {filteredProjects.map((project, idx) => {
@@ -95,7 +95,7 @@ export function Projects({ projects }: ProjectsProps) {
                   transition={{ duration: 0.35, delay: idx * 0.08 }}
                   whileHover={{ y: -4, scale: 1.015 }}
                   onClick={() => setActiveModalProject(project)}
-                  className="cursor-pointer group relative rounded-2xl bg-white border border-slate-200/90 hover:border-[#003e9c]/40 p-4 sm:p-5 flex flex-col justify-between shadow-[0_4px_16px_rgba(0,0,0,0.02)] hover:shadow-[0_10px_28px_rgba(0,62,156,0.08)]"
+                  className="cursor-pointer h-full"
                   tabIndex={0}
                   role="button"
                   onKeyDown={(e) => {
@@ -106,69 +106,71 @@ export function Projects({ projects }: ProjectsProps) {
                   }}
                   aria-label={`View architecture details for ${project.title}`}
                 >
-                  <div>
-                    {/* Header Status & Top Badge */}
-                    <div className="flex items-center justify-between mb-3">
-                      <span
-                        className={`inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full border ${
-                          isCompleted
-                            ? "bg-emerald-50 text-emerald-700 border-emerald-300"
-                            : "bg-blue-50 text-[#003e9c] border-blue-200"
-                        }`}
-                      >
-                        {isCompleted && <CheckCircle2 className="w-3 h-3 text-emerald-600" />}
-                        {project.status}
-                      </span>
+                  <SpotlightCard className="p-4 sm:p-5 h-full hover:border-[#003e9c]/40 group">
+                    <div>
+                      {/* Header Status & Top Badge */}
+                      <div className="flex items-center justify-between mb-3">
+                        <span
+                          className={`inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full border ${
+                            isCompleted
+                              ? "bg-emerald-50 text-emerald-700 border-emerald-300"
+                              : "bg-blue-50 text-[#003e9c] border-blue-200"
+                          }`}
+                        >
+                          {isCompleted && <CheckCircle2 className="w-3 h-3 text-emerald-600" />}
+                          {project.status}
+                        </span>
 
-                      <div className="p-1 rounded-full bg-slate-100 text-slate-600 group-hover:text-white group-hover:bg-[#003e9c] transition-all group-hover:scale-105 shadow-sm">
-                        <ArrowUpRight className="w-3.5 h-3.5" />
+                        <div className="p-1 rounded-full bg-slate-100 text-slate-600 group-hover:text-white group-hover:bg-[#003e9c] transition-all group-hover:scale-105 shadow-sm">
+                          <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        </div>
+                      </div>
+
+                      {/* Title & Subtitle */}
+                      <h3 className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-[#003e9c] transition-colors tracking-tight mb-0.5">
+                        {project.title}
+                      </h3>
+                      <p className="text-[11px] font-semibold text-[#003e9c] mb-2">
+                        {project.subtitle}
+                      </p>
+
+                      {/* Overview Text */}
+                      <p className="text-xs text-slate-600 leading-relaxed line-clamp-3 mb-3.5 font-normal">
+                        {project.overview}
+                      </p>
+                    </div>
+
+                    {/* Bottom Card Footer: Tech Tags & Link */}
+                    <div>
+                      <div className="flex flex-wrap gap-1 mb-3">
+                        {project.techStack.slice(0, 4).map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-slate-100 text-slate-700 border border-slate-200/80"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {project.techStack.length > 4 && (
+                          <span className="px-1.5 py-0.5 rounded text-[9px] font-mono text-slate-500 bg-slate-50 border border-slate-200/60">
+                            +{project.techStack.length - 4}
+                          </span>
+                        )}
+                      </div>
+
+                      <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-mono">
+                        <span className="text-[11px] font-semibold text-slate-700 group-hover:text-[#003e9c] transition-colors">
+                          View Architecture &rarr;
+                        </span>
+                        {project.githubUrl && (
+                          <span className="text-[#003e9c] flex items-center gap-1 font-bold text-[11px]">
+                            <Github className="w-3 h-3" />
+                            Code
+                          </span>
+                        )}
                       </div>
                     </div>
-
-                    {/* Title & Subtitle */}
-                    <h3 className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-[#003e9c] transition-colors tracking-tight mb-0.5">
-                      {project.title}
-                    </h3>
-                    <p className="text-[11px] font-semibold text-[#003e9c] mb-2">
-                      {project.subtitle}
-                    </p>
-
-                    {/* Overview Text */}
-                    <p className="text-xs text-slate-600 leading-relaxed line-clamp-3 mb-3.5 font-normal">
-                      {project.overview}
-                    </p>
-                  </div>
-
-                  {/* Bottom Card Footer: Tech Tags & Link */}
-                  <div>
-                    <div className="flex flex-wrap gap-1 mb-3">
-                      {project.techStack.slice(0, 4).map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-slate-100 text-slate-700 border border-slate-200/80"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                      {project.techStack.length > 4 && (
-                        <span className="px-1.5 py-0.5 rounded text-[9px] font-mono text-slate-500 bg-slate-50 border border-slate-200/60">
-                          +{project.techStack.length - 4}
-                        </span>
-                      )}
-                    </div>
-
-                    <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-mono">
-                      <span className="text-[11px] font-semibold text-slate-700 group-hover:text-[#003e9c] transition-colors">
-                        View Architecture &rarr;
-                      </span>
-                      {project.githubUrl && (
-                        <span className="text-[#003e9c] flex items-center gap-1 font-bold text-[11px]">
-                          <Github className="w-3 h-3" />
-                          Code
-                        </span>
-                      )}
-                    </div>
-                  </div>
+                  </SpotlightCard>
                 </motion.div>
               );
             })}

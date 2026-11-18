@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { GraduationCap, Layers, BrainCircuit, Compass } from "lucide-react";
+import { SpotlightCard } from "@/components/ui/SpotlightCard";
 import type { ProfileData, EducationData } from "@/types";
 
 interface AboutProps {
@@ -58,45 +59,47 @@ export function About({ profile, education }: AboutProps) {
           </p>
         </motion.div>
 
-        {/* Narrative & Pillars Grid (Animated & Medium Sized) */}
+        {/* Narrative & Pillars Grid (Animated & Spotlight Medium Sized) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-          {/* Main Narrative Card */}
+          {/* Main Narrative Card with Dynamic Cursor Spotlight */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-6 p-6 sm:p-7 rounded-2xl bg-white border border-slate-200/90 shadow-[0_8px_24px_rgba(0,0,0,0.03)] space-y-4"
+            className="lg:col-span-6"
           >
-            <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">
-              Building meaningful software through continuous learning
-            </h3>
+            <SpotlightCard className="p-6 sm:p-7 space-y-4">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">
+                Building meaningful software through continuous learning
+              </h3>
 
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-              {profile.about}
-            </p>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                {profile.about}
+              </p>
 
-            <div className="pt-4 border-t border-slate-100 grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs font-mono">
-              <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/70">
-                <span className="text-slate-500 block text-[10px] uppercase font-semibold">Location</span>
-                <span className="text-slate-900 font-bold text-xs truncate block">{profile.location}</span>
+              <div className="pt-4 border-t border-slate-100 grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs font-mono">
+                <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/70">
+                  <span className="text-slate-500 block text-[10px] uppercase font-semibold">Location</span>
+                  <span className="text-slate-900 font-bold text-xs truncate block">{profile.location}</span>
+                </div>
+                <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/70">
+                  <span className="text-slate-500 block text-[10px] uppercase font-semibold">Degree</span>
+                  <span className="text-slate-900 font-bold text-xs">B.E. CSE</span>
+                </div>
+                <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/70">
+                  <span className="text-slate-500 block text-[10px] uppercase font-semibold">Institution</span>
+                  <span className="text-slate-900 font-bold text-xs truncate block">SSIT</span>
+                </div>
+                <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/70">
+                  <span className="text-slate-500 block text-[10px] uppercase font-semibold">Timeline</span>
+                  <span className="text-slate-900 font-bold text-xs">{education.timeline}</span>
+                </div>
               </div>
-              <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/70">
-                <span className="text-slate-500 block text-[10px] uppercase font-semibold">Degree</span>
-                <span className="text-slate-900 font-bold text-xs">B.E. CSE</span>
-              </div>
-              <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/70">
-                <span className="text-slate-500 block text-[10px] uppercase font-semibold">Institution</span>
-                <span className="text-slate-900 font-bold text-xs truncate block">SSIT</span>
-              </div>
-              <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/70">
-                <span className="text-slate-500 block text-[10px] uppercase font-semibold">Timeline</span>
-                <span className="text-slate-900 font-bold text-xs">{education.timeline}</span>
-              </div>
-            </div>
+            </SpotlightCard>
           </motion.div>
 
-          {/* Pillars List (Animated Staggered Cards) */}
+          {/* Pillars List (Animated Staggered Spotlight Cards) */}
           <div className="lg:col-span-6 space-y-3">
             {pillars.map((pillar, idx) => (
               <motion.div
@@ -106,21 +109,22 @@ export function About({ profile, education }: AboutProps) {
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, delay: idx * 0.12 }}
                 whileHover={{ y: -3, scale: 1.01 }}
-                className="p-4 sm:p-4.5 rounded-2xl bg-white border border-slate-200/90 hover:border-[#003e9c]/30 transition-all duration-200 hover:shadow-md hover:shadow-blue-900/5 group"
               >
-                <div className="flex items-start gap-3.5">
-                  <div className="p-2.5 rounded-xl bg-blue-50/80 border border-blue-100/80 shrink-0">
-                    {pillar.icon}
+                <SpotlightCard className="p-4 sm:p-4.5 group">
+                  <div className="flex items-start gap-3.5">
+                    <div className="p-2.5 rounded-xl bg-blue-50/80 border border-blue-100/80 shrink-0">
+                      {pillar.icon}
+                    </div>
+                    <div className="space-y-1">
+                      <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#003e9c] transition-colors">
+                        {pillar.title}
+                      </h4>
+                      <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                        {pillar.description}
+                      </p>
+                    </div>
                   </div>
-                  <div className="space-y-1">
-                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#003e9c] transition-colors">
-                      {pillar.title}
-                    </h4>
-                    <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                      {pillar.description}
-                    </p>
-                  </div>
-                </div>
+                </SpotlightCard>
               </motion.div>
             ))}
           </div>

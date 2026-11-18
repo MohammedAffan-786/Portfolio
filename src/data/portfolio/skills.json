@@ -5,7 +5,7 @@
       "description": "Core languages for systems, algorithms, and application development.",
       "skills": [
         { "name": "Python", "level": "Proficient", "verified": true, "note": "Used in AI backend services, automation, and data structures." },
-        { "name": "JavaScript (ES6+)", "level": "Proficient", "verified": true, "note": "Primary language for asynchronous web and MERN development." },
+        { "name": "JavaScript", "level": "Proficient", "verified": true, "note": "Primary language for asynchronous web and MERN development." },
         { "name": "C++", "level": "Proficient", "verified": true, "note": "Academic coursework, computational problem solving, and OOP." }
       ]
     },

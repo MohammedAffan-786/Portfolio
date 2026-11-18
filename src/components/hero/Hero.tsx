@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
-import { ArrowRight, FileText, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, FileText, Github, Linkedin, Mail, Sparkles, CheckCircle2, Terminal } from "lucide-react";
 import type { ProfileData, EducationData } from "@/types";
 
 interface HeroProps {
@@ -31,6 +31,13 @@ export function Hero({ profile, education, onOpenResumeModal }: HeroProps) {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
   };
 
+  const highlights = [
+    { label: "Engineering Systems", value: "3 Completed", desc: "DevFlow AI, EduReach, Research Rabbit AI" },
+    { label: "Core Stack", value: "MERN + Python", desc: "TypeScript, Express, MongoDB, FastAPI" },
+    { label: "AI Architecture", value: "RAG & Vector Search", desc: "Qdrant, LangChain, Citation Graphs" },
+    { label: "Code Integrity", value: "100% Verified", desc: "Zero-fabrication genuine repository code" },
+  ];
+
   return (
     <section id="home" className="relative pt-20 sm:pt-24 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8">
       {/* Framer-style Curved Aviation Hero Container in Clean Medium Size */}
@@ -56,10 +63,26 @@ export function Hero({ profile, education, onOpenResumeModal }: HeroProps) {
           }}
         />
 
-        <div className="relative z-10 flex flex-col items-center text-center space-y-4 max-w-3xl mx-auto">
+        <div className="relative z-10 flex flex-col items-center text-center space-y-5 max-w-3xl mx-auto">
           
+          {/* Rare-to-find Pulsing Radar Availability Pill */}
+          <motion.div
+            variants={itemVariants}
+            animate={{ y: [0, -3, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-300/80 bg-emerald-50/80 backdrop-blur-md shadow-sm"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span className="text-[11px] font-bold tracking-wider text-emerald-800 uppercase font-mono">
+              Available for Internships &bull; Full-Stack &amp; AI Engineering
+            </span>
+          </motion.div>
+
           {/* Main Hero Headline */}
-          <motion.div variants={itemVariants} className="space-y-3 pt-2">
+          <motion.div variants={itemVariants} className="space-y-3 pt-1">
             <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight text-slate-900 leading-[1.12]">
               Crafting Intelligent Systems &amp;{" "}
               <span className="bg-gradient-to-r from-[#002b66] via-[#003e9c] to-[#0052cc] bg-clip-text text-transparent">
@@ -71,15 +94,18 @@ export function Hero({ profile, education, onOpenResumeModal }: HeroProps) {
             </p>
           </motion.div>
 
-          {/* Action Pill Buttons with Spring Hover/Tap */}
-          <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center gap-3 pt-2">
+          {/* Action Pill Buttons with Spring Hover/Tap & Sheen Effect */}
+          <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center gap-3 pt-1">
             <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.96 }}>
               <Link
                 href="#projects"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-white bg-[#003e9c] hover:bg-[#0052cc] shadow-md shadow-blue-900/20 transition-colors"
+                className="relative overflow-hidden inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-white bg-[#003e9c] hover:bg-[#0052cc] shadow-md shadow-blue-900/20 transition-all group"
               >
-                <span>Explore My Projects</span>
-                <ArrowRight className="w-4 h-4" />
+                <span className="relative z-10 flex items-center gap-2">
+                  <span>Explore My Projects</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </span>
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 pointer-events-none" />
               </Link>
             </motion.div>
 
@@ -129,6 +155,30 @@ export function Hero({ profile, education, onOpenResumeModal }: HeroProps) {
               <Linkedin className="w-3.5 h-3.5" />
               <span>LinkedIn</span>
             </motion.a>
+          </motion.div>
+
+          {/* Rare-to-find Glass Highlights Metric Strip (Medium Sized) */}
+          <motion.div
+            variants={itemVariants}
+            className="w-full pt-6 mt-2 border-t border-slate-200/80 grid grid-cols-2 sm:grid-cols-4 gap-3 text-left"
+          >
+            {highlights.map((item, idx) => (
+              <motion.div
+                key={idx}
+                whileHover={{ y: -2 }}
+                className="p-3 rounded-xl bg-white/70 border border-slate-200/70 backdrop-blur-md shadow-sm"
+              >
+                <div className="text-[10px] font-mono uppercase text-slate-500 font-semibold mb-0.5">
+                  {item.label}
+                </div>
+                <div className="text-sm font-bold text-slate-900 tracking-tight">
+                  {item.value}
+                </div>
+                <div className="text-[10px] text-slate-500 line-clamp-1 mt-0.5">
+                  {item.desc}
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
 
         </div>
