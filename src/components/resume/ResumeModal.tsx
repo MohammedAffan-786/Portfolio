@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Download, FileText, GraduationCap, Code } from "lucide-react";
+import { X, Download, FileText, GraduationCap, Code, ExternalLink } from "lucide-react";
 import type { ProfileData, EducationData, SkillsData } from "@/types";
 
 interface ResumeModalProps {
@@ -106,29 +106,29 @@ export function ResumeModal({ isOpen, onClose, profile, education, skills }: Res
                 )}
               </div>
 
-              <div className="flex gap-2">
-                {hasCustomPdf ? (
-                  <motion.a
-                    whileHover={{ scale: 1.04 }}
-                    whileTap={{ scale: 0.96 }}
-                    href="/affan-resume.pdf"
-                    download="Mohammed_Affan_Resume.pdf"
-                    className="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold text-white bg-[#003e9c] hover:bg-[#0052cc] rounded-full transition-colors shadow-sm"
-                  >
-                    <Download className="w-3.5 h-3.5" />
-                    Download PDF
-                  </motion.a>
-                ) : (
-                  <motion.button
-                    whileHover={{ scale: 1.04 }}
-                    whileTap={{ scale: 0.96 }}
-                    onClick={() => window.print()}
-                    className="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold text-white bg-[#003e9c] hover:bg-[#0052cc] rounded-full transition-colors shadow-sm"
-                  >
-                    <Download className="w-3.5 h-3.5" />
-                    Print / Save CV
-                  </motion.button>
-                )}
+              <div className="flex flex-wrap items-center gap-2">
+                <motion.a
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.96 }}
+                  href="/affan-resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-slate-800 bg-white hover:bg-slate-50 border border-slate-200/90 rounded-full transition-colors shadow-sm"
+                >
+                  <ExternalLink className="w-3.5 h-3.5 text-[#003e9c]" />
+                  Open PDF in New Tab
+                </motion.a>
+
+                <motion.a
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.96 }}
+                  href="/affan-resume.pdf"
+                  download="Mohammed_Affan_Resume.pdf"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-white bg-[#003e9c] hover:bg-[#0052cc] rounded-full transition-colors shadow-sm"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  Download Resume
+                </motion.a>
               </div>
             </div>
 
