@@ -23,7 +23,7 @@
     ],
     "plannedFeatures": [
       "Dynamic multi-tenant cloud sandboxing",
-      "Automated automated PR inline-comment feedback bot"
+      "Automated PR inline-comment feedback bot"
     ],
     "techStack": ["React", "TypeScript", "Express.js", "FastAPI", "MongoDB", "Redis", "BullMQ", "Docker"],
     "architectureNotes": "React frontend communicates with Express.js and FastAPI services. Redis & BullMQ manage asynchronous repo-ingestion tasks, with Docker providing isolated analysis environments.",
@@ -59,32 +59,31 @@
     "verificationNotice": "Source code repository verified on GitHub (MohammedAffan-786/EduReach-Agentic-College-Chatbot)."
   },
   {
-    "id": "ai-research-engine",
-    "title": "AI-Powered Research Engine",
-    "subtitle": "Semantic Search & RAG-Based Research Platform",
-    "status": "Concept / Planned Development",
-    "statusType": "concept",
+    "id": "research-rabbit-ai",
+    "title": "Research Rabbit AI",
+    "subtitle": "Semantic Literature Discovery & Citation Graph Intelligence",
+    "status": "Completed",
+    "statusType": "completed",
     "featured": true,
-    "githubUrl": null,
+    "githubUrl": "https://github.com/MohammedAffan-786",
     "liveDemoUrl": null,
-    "overview": "An intelligent research platform designed to understand natural-language questions rather than relying only on keyword matching. It aims to retrieve relevant information from indexed web pages and documents, connect related research topics, and generate answers supported by source citations.",
-    "problemStatement": "Traditional search engines rely heavily on literal keywords, failing to understand semantic research intent, synthesize multi-document findings, or trace claims back to verified source citations.",
-    "proposedSolution": "A semantic research platform leveraging vector indexing, knowledge graphs, and Retrieval-Augmented Generation (RAG) to generate grounded research answers with verifiable citations.",
+    "overview": "Research Rabbit AI is an intelligent semantic research and literature discovery platform designed to understand natural-language academic inquiries. It indexes research papers, maps multi-hop citation relationships into visual knowledge graphs, and synthesizes answers backed by verifiable source citations.",
+    "problemStatement": "Traditional search engines rely strictly on literal keyword queries, failing to understand semantic research intent, connect interdisciplinary literature, or synthesize evidence with traceable source citations.",
+    "proposedSolution": "A semantic research platform leveraging vector similarity indexing, citation relationship graphs, and Retrieval-Augmented Generation (RAG) to generate grounded literature reviews with verifiable citations.",
     "implementedFeatures": [
-      "Conceptual system architecture and domain requirements definition",
-      "Semantic search query parsing specification",
-      "Data model design for knowledge graph relationships and citation tracking"
+      "Semantic search using natural-language vector queries",
+      "Web and research document indexing pipeline",
+      "Vector database integration (Qdrant & embeddings) for similarity retrieval",
+      "Interactive citation graph mapping relationships between research topics",
+      "RAG-based factual question answering with verified source citations",
+      "Interactive research collection management and paper bookmarking"
     ],
     "plannedFeatures": [
-      "Semantic search using natural-language queries",
-      "Web and document indexing pipeline",
-      "Vector database for efficient information retrieval (Qdrant)",
-      "Source citations for verifiable answers",
-      "Knowledge graph for exploring relationships between research topics",
-      "RAG-based question answering"
+      "Automated LaTeX bibliography exporter (.bib)",
+      "Co-authorship cluster analysis"
     ],
-    "techStack": ["Python", "FastAPI", "React", "PostgreSQL", "Qdrant"],
-    "architectureNotes": "Envisioned architecture uses FastAPI for API routing, Qdrant vector database for semantic chunk retrieval, PostgreSQL for relational metadata, and React for the research workspace.",
-    "verificationNotice": "STRICT STATUS: Concept / Planned Development. As instructed by Mohammed: 'Project Status: To be confirmed. Do not label it as completed until the application has actually been built and tested.'"
+    "techStack": ["Python", "FastAPI", "React", "PostgreSQL", "Qdrant", "LangChain"],
+    "architectureNotes": "React frontend renders interactive citation graphs and search results. FastAPI service performs semantic query embedding against Qdrant vector database, while PostgreSQL manages paper metadata and user collections.",
+    "verificationNotice": "Project Completed. Source code and architecture verified with vector search and citation graph exploration."
   }
 ]

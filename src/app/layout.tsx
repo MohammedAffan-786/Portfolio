@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     "Mohammed Affan Farooq",
     "DevFlow AI",
     "EduReach",
-    "AI-Powered Research Engine",
+    "Research Rabbit AI",
     "Computer Science",
     "Sri Siddhartha Institute of Technology",
     "SSIT Tumakuru",
@@ -69,7 +69,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-[#08090d] text-zinc-100 min-h-screen`}
+        className={`${manrope.variable} ${jetbrainsMono.variable} font-sans antialiased bg-[#050716] text-white min-h-screen selection:bg-[#5594f2]/30 selection:text-white`}
       >
         {children}
       </body>

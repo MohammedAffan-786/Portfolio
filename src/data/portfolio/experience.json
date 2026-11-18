@@ -7,9 +7,10 @@
       "period": "2024 – 2027",
       "type": "Academic & Project Engineering",
       "location": "Tumakuru, Karnataka, India",
-      "description": "Pursuing Bachelor of Engineering in Computer Science while building MERN stack and AI-powered applications including DevFlow AI and EduReach.",
+      "description": "Pursuing Bachelor of Engineering in Computer Science while building MERN stack and AI-powered systems including DevFlow AI, EduReach, and Research Rabbit AI.",
       "highlights": [
         "Developing full-stack web applications with Python, JavaScript, React, Node.js, and Express",
+        "Building semantic literature search and citation graphs with Research Rabbit AI",
         "Exploring Generative AI, LLM-powered applications, and knowledge retrieval",
         "Managing data architectures using MongoDB and MySQL"
       ]

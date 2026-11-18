@@ -10,8 +10,6 @@ import { GitHubSection } from "@/components/github/GitHubSection";
 import { Education } from "@/components/education/Education";
 import { Contact } from "@/components/contact/Contact";
 import { Footer } from "@/components/layout/Footer";
-import { AffanAIModal } from "@/components/chat/AffanAIModal";
-import { FloatingAILauncher } from "@/components/chat/FloatingAILauncher";
 import { ResumeModal } from "@/components/resume/ResumeModal";
 import { InteractiveCanvasBackground } from "@/components/background/InteractiveCanvasBackground";
 
@@ -45,12 +43,11 @@ export function PortfolioClient({
   contact,
   initialGitHub,
 }: PortfolioClientProps) {
-  const [isChatOpen, setIsChatOpen] = useState(false);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   return (
-    <div className="relative min-h-screen bg-[#08090d] text-zinc-100 selection:bg-sky-500/30 selection:text-sky-200">
-      {/* Interactive Background */}
+    <div className="relative min-h-screen bg-[#050716] text-zinc-100 selection:bg-[#5594f2]/30 selection:text-white font-sans">
+      {/* Interactive Aviation Background */}
       <InteractiveCanvasBackground />
 
       {/* Navigation */}
@@ -61,12 +58,11 @@ export function PortfolioClient({
       />
 
       {/* Main Content Flow */}
-      <main className="relative z-10">
+      <main className="relative z-10 space-y-12 sm:space-y-16">
         <Hero
           profile={profile}
           education={education}
           onOpenResumeModal={() => setIsResumeOpen(true)}
-          onOpenChat={() => setIsChatOpen(true)}
         />
 
         <About profile={profile} education={education} />
@@ -83,10 +79,7 @@ export function PortfolioClient({
 
         <Education education={education} />
 
-        <Contact
-          contact={contact}
-          onOpenChat={() => setIsChatOpen(true)}
-        />
+        <Contact contact={contact} />
       </main>
 
       {/* Footer */}
@@ -96,17 +89,7 @@ export function PortfolioClient({
         email={contact.email}
       />
 
-      {/* Floating AI Launcher & Modals */}
-      <FloatingAILauncher
-        isOpen={isChatOpen}
-        onOpen={() => setIsChatOpen(true)}
-      />
-
-      <AffanAIModal
-        isOpen={isChatOpen}
-        onClose={() => setIsChatOpen(false)}
-      />
-
+      {/* Resume Modal */}
       <ResumeModal
         isOpen={isResumeOpen}
         onClose={() => setIsResumeOpen(false)}

@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { Github, Star, GitFork, RefreshCw, AlertCircle, ExternalLink, Calendar, Code } from "lucide-react";
+import React, { useState } from "react";
+import { Github, Star, GitFork, RefreshCw, AlertCircle, ExternalLink, Code } from "lucide-react";
 import type { GitHubRepo } from "@/types";
 
 interface GitHubSectionProps {
@@ -52,43 +52,52 @@ export function GitHubSection({
   };
 
   return (
-    <section className="relative py-20 border-t border-white/[0.06] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-zinc-900 border border-white/[0.08] text-xs font-mono text-zinc-400 mb-2">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-white/15 bg-white/[0.05] text-xs font-mono text-white mb-2">
               <Github className="w-3.5 h-3.5 text-white" />
               LIVE GITHUB REPOSITORIES
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
               Official GitHub Activity
             </h2>
-            <p className="text-xs sm:text-sm text-zinc-400 mt-1">
-              Direct telemetry from <a href="https://github.com/MohammedAffan-786" target="_blank" rel="noopener noreferrer" className="text-sky-400 hover:underline">github.com/MohammedAffan-786</a>. No simulated statistics.
+            <p className="text-xs sm:text-sm text-white/70 mt-1 font-light">
+              Direct telemetry from{" "}
+              <a
+                href="https://github.com/MohammedAffan-786"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#5594f2] hover:underline font-mono"
+              >
+                github.com/MohammedAffan-786
+              </a>
+              . No simulated statistics.
             </p>
           </div>
 
           {/* Refresh Action & Timestamp */}
           <div className="flex items-center gap-3">
-            <span className="text-[11px] font-mono text-zinc-400">
+            <span className="text-[11px] font-mono text-white/50">
               Updated: {formatDate(lastFetched)}
             </span>
             <button
               onClick={refreshData}
               disabled={loading}
-              className="p-2 rounded-lg bg-zinc-900 border border-white/[0.08] text-zinc-300 hover:text-white hover:bg-zinc-800 disabled:opacity-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+              className="p-2.5 rounded-full bg-white/[0.06] border border-white/10 text-white hover:bg-white/10 disabled:opacity-50 transition-colors focus:outline-none"
               aria-label="Refresh GitHub data"
               title="Refresh GitHub data"
             >
-              <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin text-sky-400" : ""}`} />
+              <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin text-[#5594f2]" : ""}`} />
             </button>
           </div>
         </div>
 
         {/* Error Alert if rate-limited or offline */}
         {error && (
-          <div className="mb-6 p-4 rounded-xl bg-amber-950/40 border border-amber-500/20 flex items-start gap-3 text-xs text-amber-200">
+          <div className="mb-6 p-4 rounded-2xl bg-amber-950/40 border border-amber-500/20 flex items-start gap-3 text-xs text-amber-200">
             <AlertCircle className="w-4 h-4 text-amber-400 mt-0.5 flex-shrink-0" />
             <div>
               <strong className="block font-semibold">GitHub Live Status Notice:</strong>
@@ -105,26 +114,26 @@ export function GitHubSection({
               href={repo.htmlUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-5 rounded-xl bg-zinc-900/30 border border-white/[0.06] hover:border-white/[0.15] hover:bg-zinc-900/50 transition-all flex flex-col justify-between"
+              className="group p-6 rounded-[24px] bg-gradient-to-b from-[#040d36]/50 via-[#050716]/70 to-[#04081c] border border-white/10 hover:border-[#5594f2]/40 hover:scale-[1.01] transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-start justify-between gap-2 mb-2">
-                  <h3 className="font-semibold text-sm text-zinc-200 group-hover:text-sky-300 transition-colors truncate">
+                  <h3 className="font-semibold text-sm text-white group-hover:text-[#5594f2] transition-colors truncate">
                     {repo.name}
                   </h3>
-                  <ExternalLink className="w-3.5 h-3.5 text-zinc-400 group-hover:text-zinc-200 flex-shrink-0 transition-colors" />
+                  <ExternalLink className="w-3.5 h-3.5 text-white/50 group-hover:text-white flex-shrink-0 transition-colors" />
                 </div>
 
-                <p className="text-xs text-zinc-400 leading-relaxed line-clamp-2 mb-4">
+                <p className="text-xs text-white/70 leading-relaxed line-clamp-2 mb-4 font-light">
                   {repo.description || "Active public repository maintained by Mohammed Affan."}
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-white/[0.05] flex items-center justify-between text-[11px] font-mono text-zinc-400">
+              <div className="pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-white/60">
                 <div className="flex items-center gap-3">
                   {repo.language && (
-                    <span className="flex items-center gap-1 text-zinc-300">
-                      <Code className="w-3 h-3 text-sky-400" />
+                    <span className="flex items-center gap-1 text-white/80">
+                      <Code className="w-3 h-3 text-[#5594f2]" />
                       {repo.language}
                     </span>
                   )}
@@ -133,11 +142,11 @@ export function GitHubSection({
                     {repo.stars}
                   </span>
                   <span className="flex items-center gap-1">
-                    <GitFork className="w-3 h-3 text-zinc-400" />
+                    <GitFork className="w-3 h-3 text-white/60" />
                     {repo.forks}
                   </span>
                 </div>
-                <span className="text-zinc-400">
+                <span className="text-white/50">
                   {formatDate(repo.updatedAt)}
                 </span>
               </div>

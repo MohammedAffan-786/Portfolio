@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Github, Linkedin, Mail, Menu, X, Terminal, Cpu } from "lucide-react";
+import { Github, Linkedin, Menu, X, ArrowUpRight } from "lucide-react";
 
 interface NavbarProps {
   githubUrl: string;
@@ -40,7 +40,6 @@ export function Navbar({ githubUrl, linkedinUrl, email }: NavbarProps) {
   }, []);
 
   const navLinks = [
-    { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
     { label: "Skills", href: "#skills" },
     { label: "Projects", href: "#projects" },
@@ -52,38 +51,31 @@ export function Navbar({ githubUrl, linkedinUrl, email }: NavbarProps) {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled
-          ? "bg-[#08090d]/85 backdrop-blur-md border-b border-white/[0.07] py-3.5 shadow-2xl shadow-black/50"
+          ? "bg-[#050716]/85 backdrop-blur-xl border-b border-white/[0.08] py-3 shadow-2xl shadow-black/60"
           : "bg-transparent py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo / Identity */}
+          {/* Framer-style Pill Brand Logo */}
           <Link
             href="#home"
-            className="group flex items-center space-x-2.5 text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded-lg p-1"
+            className="group flex items-center space-x-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded-full"
             aria-label="Mohammed Affan Portfolio Home"
           >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-sky-500 p-0.5 flex items-center justify-center shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform">
-              <div className="w-full h-full bg-[#08090d] rounded-[7px] flex items-center justify-center">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400 font-bold text-sm tracking-wider">
-                  MA
-                </span>
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-semibold text-sm tracking-tight text-zinc-100 group-hover:text-white transition-colors">
-                Mohammed Affan
+            <div className="px-3.5 py-1.5 rounded-full bg-[#003e9c] hover:bg-[#0052cc] text-white flex items-center gap-2 shadow-md shadow-blue-900/30 transition-all">
+              <span className="font-bold text-xs tracking-wider uppercase">
+                Affan
               </span>
-              <span className="text-[10px] text-zinc-400 font-mono flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                CS Undergrad
-              </span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#5594f2]"></span>
             </div>
+            <span className="hidden sm:inline-block font-semibold text-sm tracking-tight text-zinc-200 group-hover:text-white transition-colors">
+              Mohammed Affan
+            </span>
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center space-x-1 bg-zinc-900/40 border border-white/[0.06] rounded-full px-4 py-1.5 backdrop-blur-sm">
+          {/* Desktop Navigation Links Pill Container */}
+          <nav className="hidden md:flex items-center space-x-1 bg-white/[0.04] border border-white/[0.08] rounded-full px-4 py-1.5 backdrop-blur-md">
             {navLinks.map((link) => {
               const id = link.href.replace("#", "");
               const isActive = activeSection === id;
@@ -91,10 +83,10 @@ export function Navbar({ githubUrl, linkedinUrl, email }: NavbarProps) {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className={`px-3 py-1 text-xs font-medium rounded-full transition-all duration-200 ${
+                  className={`px-3.5 py-1 text-xs font-medium rounded-full transition-all duration-200 ${
                     isActive
-                      ? "text-sky-300 bg-sky-500/10 border border-sky-500/20 shadow-sm shadow-sky-500/10"
-                      : "text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.03]"
+                      ? "text-white bg-[#003e9c] shadow-sm shadow-blue-900/30"
+                      : "text-zinc-300 hover:text-white hover:bg-white/[0.06]"
                   }`}
                 >
                   {link.label}
@@ -103,13 +95,13 @@ export function Navbar({ githubUrl, linkedinUrl, email }: NavbarProps) {
             })}
           </nav>
 
-          {/* Actions & Profiles */}
+          {/* Action Button: Get in Touch (Framer-style electric blue pill button) */}
           <div className="hidden md:flex items-center space-x-3">
             <a
               href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 text-zinc-400 hover:text-white bg-zinc-900/60 hover:bg-zinc-800 border border-white/[0.06] rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+              className="p-2 text-zinc-300 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] rounded-full transition-colors"
               aria-label="GitHub Profile"
             >
               <Github className="w-4 h-4" />
@@ -118,16 +110,17 @@ export function Navbar({ githubUrl, linkedinUrl, email }: NavbarProps) {
               href={linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 text-zinc-400 hover:text-white bg-zinc-900/60 hover:bg-zinc-800 border border-white/[0.06] rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+              className="p-2 text-zinc-300 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] rounded-full transition-colors"
               aria-label="LinkedIn Profile"
             >
               <Linkedin className="w-4 h-4" />
             </a>
             <Link
               href="#contact"
-              className="px-3.5 py-1.5 text-xs font-medium text-white bg-gradient-to-r from-indigo-600 to-sky-600 hover:from-indigo-500 hover:to-sky-500 rounded-lg shadow-md shadow-indigo-600/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center gap-1.5 px-5 py-2 text-xs font-semibold text-white bg-[#003e9c] hover:bg-[#0052cc] rounded-full shadow-lg shadow-blue-900/40 transition-all hover:scale-[1.03] active:scale-[0.98]"
             >
-              Get in Touch
+              <span>Let&apos;s Connect</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
@@ -135,7 +128,7 @@ export function Navbar({ githubUrl, linkedinUrl, email }: NavbarProps) {
           <div className="flex md:hidden items-center space-x-2">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-zinc-400 hover:text-white bg-zinc-900/80 border border-white/[0.08] rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+              className="p-2 text-zinc-300 hover:text-white bg-white/[0.05] border border-white/[0.08] rounded-full focus:outline-none"
               aria-label="Toggle mobile menu"
               aria-expanded={mobileMenuOpen}
             >
@@ -147,27 +140,27 @@ export function Navbar({ githubUrl, linkedinUrl, email }: NavbarProps) {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-white/[0.08] bg-[#0a0c10]/95 backdrop-blur-xl px-4 pt-3 pb-5 space-y-2 mt-2 shadow-2xl">
+        <div className="md:hidden border-b border-white/[0.08] bg-[#050716]/98 backdrop-blur-2xl px-4 pt-3 pb-5 space-y-2 mt-2 shadow-2xl">
           <div className="flex flex-col space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 text-sm font-medium text-zinc-300 hover:text-white hover:bg-white/[0.05] rounded-md transition-colors"
+                className="px-3.5 py-2 text-sm font-medium text-zinc-300 hover:text-white hover:bg-white/[0.06] rounded-xl transition-colors"
               >
                 {link.label}
               </Link>
             ))}
           </div>
 
-          <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between">
-            <div className="flex space-x-3">
+          <div className="pt-3 border-t border-white/[0.08] flex items-center justify-between">
+            <div className="flex space-x-2">
               <a
                 href={githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-zinc-400 hover:text-white bg-zinc-900 border border-white/[0.06] rounded-md"
+                className="p-2 text-zinc-300 hover:text-white bg-white/[0.05] border border-white/[0.08] rounded-full"
                 aria-label="GitHub Profile"
               >
                 <Github className="w-4 h-4" />
@@ -176,7 +169,7 @@ export function Navbar({ githubUrl, linkedinUrl, email }: NavbarProps) {
                 href={linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-zinc-400 hover:text-white bg-zinc-900 border border-white/[0.06] rounded-md"
+                className="p-2 text-zinc-300 hover:text-white bg-white/[0.05] border border-white/[0.08] rounded-full"
                 aria-label="LinkedIn Profile"
               >
                 <Linkedin className="w-4 h-4" />
@@ -185,9 +178,9 @@ export function Navbar({ githubUrl, linkedinUrl, email }: NavbarProps) {
             <Link
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="px-4 py-1.5 text-xs font-medium text-white bg-gradient-to-r from-indigo-600 to-sky-600 rounded-md"
+              className="px-5 py-2 text-xs font-semibold text-white bg-[#003e9c] rounded-full"
             >
-              Contact
+              Let&apos;s Connect
             </Link>
           </div>
         </div>

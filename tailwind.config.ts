@@ -10,46 +10,51 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#08090d",
+        background: "#050716",
         surface: {
-          50: "#181a20",
-          100: "#131419",
-          200: "#0e1014",
-          300: "#0a0b0e",
+          50: "#0d143a",
+          100: "#091030",
+          200: "#060b24",
+          300: "#040718",
+        },
+        aviation: {
+          blue: "#003e9c",
+          brightBlue: "#0052cc",
+          sky: "#5594f2",
+          ice: "#d1eaff",
+          navy: "#040d36",
+          midnight: "#050716",
+          light: "#eff1f3",
+          card: "#0b1238",
         },
         accent: {
           cyan: "#38bdf8",
-          blue: "#3b82f6",
-          indigo: "#6366f1",
-          violet: "#8b5cf6",
+          blue: "#003e9c",
+          indigo: "#4f46e5",
+          violet: "#7c3aed",
         },
         border: {
           subtle: "rgba(255, 255, 255, 0.08)",
           strong: "rgba(255, 255, 255, 0.16)",
-          glow: "rgba(99, 102, 241, 0.3)",
+          glow: "rgba(0, 62, 156, 0.4)",
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        sans: ["var(--font-sans)", "Manrope", "Inter", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "monospace"],
       },
       backgroundImage: {
-        "radial-glow": "radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15), transparent 70%)",
-        "mesh-gradient": "radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.1) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.08) 0px, transparent 50%)",
+        "aviation-gradient": "linear-gradient(180deg, #d1eaff 0%, #3b82f6 20%, #003e9c 50%, #040d36 80%, #050716 100%)",
+        "radial-aviation": "radial-gradient(circle at 50% 0%, rgba(85, 148, 242, 0.25) 0%, rgba(0, 62, 156, 0.15) 45%, transparent 75%)",
       },
       animation: {
         "pulse-slow": "pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-        "glow-slow": "glow 4s ease-in-out infinite alternate",
         "float": "float 6s ease-in-out infinite",
       },
       keyframes: {
-        glow: {
-          "0%": { opacity: "0.4" },
-          "100%": { opacity: "0.8" },
-        },
         float: {
           "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-8px)" },
+          "50%": { transform: "translateY(-6px)" },
         },
       },
     },
