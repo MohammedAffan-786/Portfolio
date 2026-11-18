@@ -17,10 +17,12 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
     };
     if (project) {
       document.body.style.overflow = "hidden";
+      window.__lenis?.stop();
       window.addEventListener("keydown", handleKeyDown);
     }
     return () => {
       document.body.style.overflow = "unset";
+      window.__lenis?.start();
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [project, onClose]);
@@ -58,7 +60,8 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-slate-900/60 backdrop-blur-md"
+          data-lenis-prevent="true"
+          className="fixed inset-0 z-[60] flex items-center justify-center p-3 sm:p-6 md:p-10 bg-slate-900/60 backdrop-blur-md overflow-hidden"
           role="dialog"
           aria-modal="true"
           aria-labelledby="modal-title"
@@ -69,7 +72,10 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", stiffness: 350, damping: 28 }}
-            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-white/95 backdrop-blur-3xl backdrop-saturate-180 border border-white/90 rounded-[28px] shadow-[0_25px_70px_rgba(0,62,156,0.12),inset_0_1.5px_2px_rgba(255,255,255,1)] p-6 sm:p-8 space-y-7 text-slate-800"
+            data-lenis-prevent="true"
+            onWheel={(e) => e.stopPropagation()}
+            onTouchMove={(e) => e.stopPropagation()}
+            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto overscroll-contain bg-white/95 backdrop-blur-3xl backdrop-saturate-180 border border-white/90 rounded-[28px] shadow-[0_25px_70px_rgba(0,62,156,0.12),inset_0_1.5px_2px_rgba(255,255,255,1)] p-6 sm:p-8 space-y-7 text-slate-800"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Close Button */}
