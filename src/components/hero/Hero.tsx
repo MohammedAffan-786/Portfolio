@@ -35,7 +35,7 @@ export function Hero({ profile, education, onOpenResumeModal }: HeroProps) {
     { label: "Engineering Systems", value: "3 Completed", desc: "DevFlow AI, EduReach, Research Rabbit AI" },
     { label: "Core Stack", value: "MERN + Python", desc: "TypeScript, Express, MongoDB, FastAPI" },
     { label: "AI Architecture", value: "RAG & Vector Search", desc: "Qdrant, LangChain, Citation Graphs" },
-    { label: "Code Integrity", value: "100% Verified", desc: "Zero-fabrication genuine repository code" },
+    { label: "System Design", value: "Scalable & Modular", desc: "Clean architecture, REST APIs & data modeling" },
   ];
 
   return (
