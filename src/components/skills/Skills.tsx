@@ -15,45 +15,6 @@ export function Skills({ skillsData }: SkillsProps) {
 
   const categories = ["All", ...skillsData.categories.map((c) => c.name)];
 
-  const categoryColors: Record<string, { spotlight: string; badge: string; text: string; dot: string }> = {
-    "Programming Languages": {
-      spotlight: "rgba(37, 99, 235, 0.16)",
-      badge: "bg-blue-50/90 text-blue-700 border-blue-200",
-      text: "group-hover:text-blue-600",
-      dot: "bg-blue-500",
-    },
-    "Frontend Development": {
-      spotlight: "rgba(6, 182, 212, 0.16)",
-      badge: "bg-cyan-50/90 text-cyan-700 border-cyan-200",
-      text: "group-hover:text-cyan-600",
-      dot: "bg-cyan-500",
-    },
-    "Backend Development": {
-      spotlight: "rgba(16, 185, 129, 0.16)",
-      badge: "bg-emerald-50/90 text-emerald-700 border-emerald-200",
-      text: "group-hover:text-emerald-600",
-      dot: "bg-emerald-500",
-    },
-    "Databases": {
-      spotlight: "rgba(245, 158, 11, 0.16)",
-      badge: "bg-amber-50/90 text-amber-800 border-amber-200",
-      text: "group-hover:text-amber-600",
-      dot: "bg-amber-500",
-    },
-    "AI & Generative AI": {
-      spotlight: "rgba(147, 51, 234, 0.16)",
-      badge: "bg-purple-50/90 text-purple-700 border-purple-200",
-      text: "group-hover:text-purple-600",
-      dot: "bg-purple-500",
-    },
-    "Developer Tools": {
-      spotlight: "rgba(244, 63, 94, 0.16)",
-      badge: "bg-rose-50/90 text-rose-700 border-rose-200",
-      text: "group-hover:text-rose-600",
-      dot: "bg-rose-500",
-    },
-  };
-
   const displayedCategories =
     selectedCategory === "All"
       ? skillsData.categories
@@ -119,81 +80,69 @@ export function Skills({ skillsData }: SkillsProps) {
         {/* Skills Cards Grid (Animated Motion Spotlight Cards) */}
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <AnimatePresence>
-            {displayedCategories.map((category, idx) => {
-              const theme = categoryColors[category.name] || {
-                spotlight: "rgba(59, 130, 246, 0.14)",
-                badge: "bg-blue-50/90 text-blue-700 border-blue-200",
-                text: "group-hover:text-blue-600",
-                dot: "bg-blue-500",
-              };
+            {displayedCategories.map((category, idx) => (
+              <motion.div
+                key={category.name}
+                layout
+                initial={{ opacity: 0, y: 25, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.35, delay: idx * 0.08 }}
+                whileHover={{ y: -4, scale: 1.01 }}
+              >
+                <SpotlightCard className="p-4 sm:p-5 h-full group">
+                  <div>
+                    <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
+                      <h3 className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-[#003e9c] transition-colors">
+                        {category.name}
+                      </h3>
+                      <span className="text-[10px] font-mono font-bold text-[#003e9c] px-2 py-0.5 rounded-full bg-blue-50 border border-blue-200">
+                        {category.skills.length} tools
+                      </span>
+                    </div>
 
-              return (
-                <motion.div
-                  key={category.name}
-                  layout
-                  initial={{ opacity: 0, y: 25, scale: 0.98 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.96 }}
-                  transition={{ duration: 0.35, delay: idx * 0.08 }}
-                  whileHover={{ y: -4, scale: 1.01 }}
-                >
-                  <SpotlightCard spotlightColor={theme.spotlight} className="p-4 sm:p-5 h-full group">
-                    <div>
-                      <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
-                        <div className="flex items-center gap-2">
-                          <span className={`w-2 h-2 rounded-full ${theme.dot}`} />
-                          <h3 className={`text-sm sm:text-base font-bold text-slate-900 ${theme.text} transition-colors`}>
-                            {category.name}
-                          </h3>
-                        </div>
-                        <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full border shadow-sm ${theme.badge}`}>
-                          {category.skills.length} tools
-                        </span>
-                      </div>
+                    <p className="text-xs text-slate-600 mb-3.5 leading-relaxed font-normal">
+                      {category.description}
+                    </p>
 
-                      <p className="text-xs text-slate-600 mb-3.5 leading-relaxed font-normal">
-                        {category.description}
-                      </p>
-
-                      <div className="space-y-2">
-                        {category.skills.map((skill) => (
-                          <div
-                            key={skill.name}
-                            className="p-2.5 rounded-xl bg-white/80 border border-white/95 shadow-[0_2px_8px_rgba(0,62,156,0.03),inset_0_1px_1px_rgba(255,255,255,1)] hover:bg-white hover:border-blue-200/80 transition-all"
-                          >
-                            <div className="flex items-center justify-between mb-0.5">
-                              <span className="text-xs sm:text-sm font-bold text-slate-900">
-                                {skill.name}
-                              </span>
-                              <span
-                                className={`text-[9px] font-mono font-bold px-2 py-0.5 rounded-full border ${
-                                  skill.level === "Proficient"
-                                    ? "bg-emerald-50 text-emerald-700 border-emerald-300"
-                                    : skill.level === "Working Knowledge"
-                                    ? "bg-blue-50 text-blue-700 border-blue-200"
-                                    : "bg-purple-50 text-purple-700 border-purple-200"
-                                }`}
-                              >
-                                {skill.level}
-                              </span>
-                            </div>
-                            <p className="text-[10px] sm:text-[11px] text-slate-500 leading-normal font-normal">
-                              {skill.note}
-                            </p>
+                    <div className="space-y-2">
+                      {category.skills.map((skill) => (
+                        <div
+                          key={skill.name}
+                          className="p-2.5 rounded-xl bg-white/70 border border-white/90 shadow-[0_2px_8px_rgba(0,62,156,0.02),inset_0_1px_1px_rgba(255,255,255,1)] hover:bg-white hover:border-blue-200/80 transition-all"
+                        >
+                          <div className="flex items-center justify-between mb-0.5">
+                            <span className="text-xs sm:text-sm font-bold text-slate-900">
+                              {skill.name}
+                            </span>
+                            <span
+                              className={`text-[9px] font-mono font-bold px-2 py-0.5 rounded-full border ${
+                                skill.level === "Proficient"
+                                  ? "bg-emerald-50 text-emerald-700 border-emerald-300"
+                                  : skill.level === "Working Knowledge"
+                                  ? "bg-blue-50 text-[#003e9c] border-blue-200"
+                                  : "bg-slate-100 text-slate-700 border-slate-300"
+                              }`}
+                            >
+                              {skill.level}
+                            </span>
                           </div>
-                        ))}
-                      </div>
+                          <p className="text-[10px] sm:text-[11px] text-slate-500 leading-normal font-normal">
+                            {skill.note}
+                          </p>
+                        </div>
+                      ))}
                     </div>
+                  </div>
 
-                    {/* Bottom verification badge */}
-                    <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[10px] text-slate-500 font-mono font-medium">
-                      <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-                      <span>Verified in active coursework &amp; code</span>
-                    </div>
-                  </SpotlightCard>
-                </motion.div>
-              );
-            })}
+                  {/* Bottom verification badge */}
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[10px] text-slate-500 font-mono font-medium">
+                    <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                    <span>Verified in active coursework &amp; code</span>
+                  </div>
+                </SpotlightCard>
+              </motion.div>
+            ))}
           </AnimatePresence>
         </motion.div>
       </div>

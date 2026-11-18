@@ -85,29 +85,6 @@ export function Projects({ projects }: ProjectsProps) {
           <AnimatePresence>
             {filteredProjects.map((project, idx) => {
               const isCompleted = project.statusType === "completed";
-
-              const projectTheme =
-                project.id === "devflow-ai"
-                  ? {
-                      spotlight: "rgba(99, 102, 241, 0.18)",
-                      accentLine: "from-indigo-500 via-sky-400 to-transparent",
-                      subtitle: "text-indigo-600",
-                      hoverTitle: "group-hover:text-indigo-600",
-                    }
-                  : project.id === "edureach"
-                  ? {
-                      spotlight: "rgba(16, 185, 129, 0.18)",
-                      accentLine: "from-emerald-500 via-teal-400 to-transparent",
-                      subtitle: "text-emerald-700",
-                      hoverTitle: "group-hover:text-emerald-600",
-                    }
-                  : {
-                      spotlight: "rgba(168, 85, 247, 0.18)",
-                      accentLine: "from-purple-500 via-pink-400 to-transparent",
-                      subtitle: "text-purple-700",
-                      hoverTitle: "group-hover:text-purple-600",
-                    };
-
               return (
                 <motion.div
                   key={project.id}
@@ -129,10 +106,7 @@ export function Projects({ projects }: ProjectsProps) {
                   }}
                   aria-label={`View architecture details for ${project.title}`}
                 >
-                  <SpotlightCard spotlightColor={projectTheme.spotlight} className="p-4 sm:p-5 h-full group">
-                    {/* Top Accent Gradient Line for signature project brand color */}
-                    <div className={`pointer-events-none absolute inset-x-0 top-0 h-[2.5px] bg-gradient-to-r ${projectTheme.accentLine} opacity-80`} />
-
+                  <SpotlightCard className="p-4 sm:p-5 h-full hover:border-[#003e9c]/40 group">
                     <div>
                       {/* Header Status & Top Badge */}
                       <div className="flex items-center justify-between mb-3">
@@ -169,10 +143,10 @@ export function Projects({ projects }: ProjectsProps) {
                       </div>
 
                       {/* Title & Subtitle */}
-                      <h3 className={`text-sm sm:text-base font-bold text-slate-900 ${projectTheme.hoverTitle} transition-colors tracking-tight mb-0.5`}>
+                      <h3 className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-[#003e9c] transition-colors tracking-tight mb-0.5">
                         {project.title}
                       </h3>
-                      <p className={`text-[11px] font-bold ${projectTheme.subtitle} mb-2`}>
+                      <p className="text-[11px] font-semibold text-[#003e9c] mb-2">
                         {project.subtitle}
                       </p>
 
