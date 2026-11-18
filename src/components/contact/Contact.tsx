@@ -110,7 +110,7 @@ export function Contact({ contact }: ContactProps) {
             </motion.button>
           </div>
 
-          {/* Connected Cards: Profiles & Details (Glossy Glass Finish) */}
+          {/* Connected Cards: Profiles & Details (Vibrant Glossy Liquid Glass Finish) */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full pt-6">
             {/* LinkedIn */}
             <motion.a
@@ -119,16 +119,16 @@ export function Contact({ contact }: ContactProps) {
               href={contact.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-4 rounded-2xl bg-white/75 hover:bg-white/90 border border-white/90 backdrop-blur-2xl shadow-[0_4px_20px_rgba(0,62,156,0.04),inset_0_1.5px_2px_rgba(255,255,255,1)] hover:border-blue-200/80 transition-all flex flex-col items-center text-center space-y-1.5"
+              className="group p-4 rounded-2xl bg-blue-50/60 hover:bg-blue-50/90 border border-blue-200/80 hover:border-blue-300 backdrop-blur-2xl shadow-[0_4px_20px_rgba(37,99,235,0.06),inset_0_1.5px_2px_rgba(255,255,255,1)] transition-all flex flex-col items-center text-center space-y-1.5"
             >
-              <div className="p-2.5 rounded-full bg-blue-50 text-[#003e9c] border border-blue-200 group-hover:scale-105 transition-transform">
+              <div className="p-2.5 rounded-full bg-blue-100/80 text-blue-700 border border-blue-200 group-hover:scale-110 transition-transform">
                 <Linkedin className="w-4 h-4" />
               </div>
-              <span className="text-xs sm:text-sm font-bold text-slate-900 flex items-center gap-1">
+              <span className="text-xs sm:text-sm font-extrabold text-blue-950 flex items-center gap-1">
                 LinkedIn
-                <ArrowUpRight className="w-3 h-3 text-slate-400 group-hover:text-[#003e9c] transition-colors" />
+                <ArrowUpRight className="w-3 h-3 text-blue-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </span>
-              <span className="text-[11px] text-slate-500 font-mono">mdaffan1</span>
+              <span className="text-[11px] text-blue-700 font-mono font-medium">mdaffan1</span>
             </motion.a>
 
             {/* GitHub */}
@@ -138,28 +138,28 @@ export function Contact({ contact }: ContactProps) {
               href={contact.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-4 rounded-2xl bg-white/75 hover:bg-white/90 border border-white/90 backdrop-blur-2xl shadow-[0_4px_20px_rgba(0,62,156,0.04),inset_0_1.5px_2px_rgba(255,255,255,1)] hover:border-blue-200/80 transition-all flex flex-col items-center text-center space-y-1.5"
+              className="group p-4 rounded-2xl bg-purple-50/60 hover:bg-purple-50/90 border border-purple-200/80 hover:border-purple-300 backdrop-blur-2xl shadow-[0_4px_20px_rgba(147,51,234,0.06),inset_0_1.5px_2px_rgba(255,255,255,1)] transition-all flex flex-col items-center text-center space-y-1.5"
             >
-              <div className="p-2.5 rounded-full bg-slate-100 text-slate-800 border border-slate-200 group-hover:scale-105 transition-transform">
+              <div className="p-2.5 rounded-full bg-purple-100/80 text-purple-700 border border-purple-200 group-hover:scale-110 transition-transform">
                 <Github className="w-4 h-4" />
               </div>
-              <span className="text-xs sm:text-sm font-bold text-slate-900 flex items-center gap-1">
+              <span className="text-xs sm:text-sm font-extrabold text-purple-950 flex items-center gap-1">
                 GitHub
-                <ArrowUpRight className="w-3 h-3 text-slate-400 group-hover:text-slate-900 transition-colors" />
+                <ArrowUpRight className="w-3 h-3 text-purple-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </span>
-              <span className="text-[11px] text-slate-500 font-mono">MohammedAffan-786</span>
+              <span className="text-[11px] text-purple-700 font-mono font-medium">MohammedAffan-786</span>
             </motion.a>
 
             {/* Location */}
             <motion.div
               whileHover={{ y: -4, scale: 1.02 }}
-              className="p-4 rounded-2xl bg-white/75 border border-white/90 backdrop-blur-2xl shadow-[0_4px_20px_rgba(0,62,156,0.04),inset_0_1.5px_2px_rgba(255,255,255,1)] flex flex-col items-center text-center space-y-1.5"
+              className="p-4 rounded-2xl bg-emerald-50/60 hover:bg-emerald-50/90 border border-emerald-200/80 backdrop-blur-2xl shadow-[0_4px_20px_rgba(16,185,129,0.06),inset_0_1.5px_2px_rgba(255,255,255,1)] flex flex-col items-center text-center space-y-1.5"
             >
-              <div className="p-2.5 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200">
+              <div className="p-2.5 rounded-full bg-emerald-100/80 text-emerald-700 border border-emerald-200">
                 <MapPin className="w-4 h-4" />
               </div>
-              <span className="text-xs sm:text-sm font-bold text-slate-900">Location</span>
-              <span className="text-[11px] text-slate-500 font-mono">{contact.location}</span>
+              <span className="text-xs sm:text-sm font-extrabold text-emerald-950">Location</span>
+              <span className="text-[11px] text-emerald-700 font-mono font-medium">{contact.location}</span>
             </motion.div>
           </div>
         </div>

@@ -72,7 +72,7 @@ export function Hero({ profile, education, onOpenResumeModal }: HeroProps) {
           <motion.div variants={itemVariants} className="space-y-3.5 pt-2">
             <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight text-slate-900 leading-[1.12]">
               Crafting Intelligent Systems &amp;{" "}
-              <span className="bg-gradient-to-r from-[#002b66] via-[#003e9c] to-[#0052cc] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#003e9c] via-[#7c3aed] to-[#0284c7] bg-clip-text text-transparent">
                 High-Impact Web Applications
               </span>
             </h1>
@@ -144,28 +144,72 @@ export function Hero({ profile, education, onOpenResumeModal }: HeroProps) {
             </motion.a>
           </motion.div>
 
-          {/* Glass Highlights Metric Strip (Ultra-Glossy Card Finish) */}
+          {/* Glass Highlights Metric Strip (Vibrant Colorful Liquid-Glass Finish) */}
           <motion.div
             variants={itemVariants}
             className="w-full pt-6 mt-2 border-t border-slate-200/60 grid grid-cols-2 sm:grid-cols-4 gap-3 text-left"
           >
-            {highlights.map((item, idx) => (
-              <motion.div
-                key={idx}
-                whileHover={{ y: -2 }}
-                className="p-3.5 rounded-2xl bg-white/60 hover:bg-white/80 border border-white/80 backdrop-blur-xl shadow-[0_4px_16px_rgba(0,62,156,0.03),inset_0_1px_1px_rgba(255,255,255,0.95)] transition-all"
-              >
-                <div className="text-[10px] font-mono uppercase text-slate-500 font-semibold mb-0.5">
-                  {item.label}
-                </div>
-                <div className="text-sm font-bold text-slate-900 tracking-tight">
-                  {item.value}
-                </div>
-                <div className="text-[10px] text-slate-500 line-clamp-1 mt-0.5">
-                  {item.desc}
-                </div>
-              </motion.div>
-            ))}
+            {highlights.map((item, idx) => {
+              const colorThemes = [
+                {
+                  bg: "bg-blue-50/70 hover:bg-blue-50/90",
+                  border: "border-blue-200/90 hover:border-blue-300",
+                  label: "text-blue-700",
+                  val: "text-blue-950",
+                  indicator: "bg-blue-600",
+                  glow: "shadow-[0_6px_20px_rgba(37,99,235,0.06),inset_0_1.5px_2px_rgba(255,255,255,1)]",
+                },
+                {
+                  bg: "bg-emerald-50/70 hover:bg-emerald-50/90",
+                  border: "border-emerald-200/90 hover:border-emerald-300",
+                  label: "text-emerald-700",
+                  val: "text-emerald-950",
+                  indicator: "bg-emerald-600",
+                  glow: "shadow-[0_6px_20px_rgba(16,185,129,0.06),inset_0_1.5px_2px_rgba(255,255,255,1)]",
+                },
+                {
+                  bg: "bg-purple-50/70 hover:bg-purple-50/90",
+                  border: "border-purple-200/90 hover:border-purple-300",
+                  label: "text-purple-700",
+                  val: "text-purple-950",
+                  indicator: "bg-purple-600",
+                  glow: "shadow-[0_6px_20px_rgba(147,51,234,0.06),inset_0_1.5px_2px_rgba(255,255,255,1)]",
+                },
+                {
+                  bg: "bg-amber-50/70 hover:bg-amber-50/90",
+                  border: "border-amber-200/90 hover:border-amber-300",
+                  label: "text-amber-800",
+                  val: "text-amber-950",
+                  indicator: "bg-amber-600",
+                  glow: "shadow-[0_6px_20px_rgba(245,158,11,0.06),inset_0_1.5px_2px_rgba(255,255,255,1)]",
+                },
+              ];
+              const theme = colorThemes[idx % colorThemes.length];
+
+              return (
+                <motion.div
+                  key={idx}
+                  whileHover={{ y: -3, scale: 1.02 }}
+                  className={`p-3.5 rounded-2xl ${theme.bg} border ${theme.border} backdrop-blur-2xl ${theme.glow} transition-all relative overflow-hidden group`}
+                >
+                  {/* Top specular highlight line */}
+                  <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-90" />
+                  
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <span className={`w-1.5 h-1.5 rounded-full ${theme.indicator}`} />
+                    <span className={`text-[10px] font-mono uppercase font-bold tracking-wider ${theme.label}`}>
+                      {item.label}
+                    </span>
+                  </div>
+                  <div className={`text-sm font-extrabold tracking-tight ${theme.val}`}>
+                    {item.value}
+                  </div>
+                  <div className="text-[10px] text-slate-500 line-clamp-1 mt-0.5 font-medium">
+                    {item.desc}
+                  </div>
+                </motion.div>
+              );
+            })}
           </motion.div>
 
         </div>

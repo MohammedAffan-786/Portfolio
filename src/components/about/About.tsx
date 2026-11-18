@@ -14,19 +14,25 @@ interface AboutProps {
 export function About({ profile, education }: AboutProps) {
   const pillars = [
     {
-      icon: <GraduationCap className="w-4 h-4 text-[#003e9c]" />,
+      icon: <GraduationCap className="w-4 h-4 text-blue-600" />,
+      iconBg: "bg-blue-50/90 border-blue-200 text-blue-600",
+      spotlight: "rgba(37, 99, 235, 0.15)",
       title: "Academic Background",
       description:
         "Computer Science Engineering student at Sri Siddhartha Institute of Technology (SSIT), Tumakuru (2024–2027). Grounded fundamentals in algorithms, data structures, and distributed systems.",
     },
     {
-      icon: <Layers className="w-4 h-4 text-[#0052cc]" />,
+      icon: <Layers className="w-4 h-4 text-emerald-600" />,
+      iconBg: "bg-emerald-50/90 border-emerald-200 text-emerald-600",
+      spotlight: "rgba(16, 185, 129, 0.15)",
       title: "MERN & Full-Stack Development",
       description:
         "Developing web applications using JavaScript, React.js, Node.js, Express.js, and MongoDB. Focused on clean modular architectures and reliable RESTful APIs.",
     },
     {
-      icon: <BrainCircuit className="w-4 h-4 text-emerald-600" />,
+      icon: <BrainCircuit className="w-4 h-4 text-purple-600" />,
+      iconBg: "bg-purple-50/90 border-purple-200 text-purple-600",
+      spotlight: "rgba(147, 51, 234, 0.15)",
       title: "AI-Powered Applications",
       description:
         "Building practical solutions integrating Generative AI, LangChain, vector databases (Qdrant), and LLM reasoning pipelines like DevFlow AI, EduReach, and Research Rabbit AI.",
@@ -79,21 +85,21 @@ export function About({ profile, education }: AboutProps) {
               </p>
 
               <div className="pt-4 border-t border-slate-200/60 grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs font-mono">
-                <div className="p-2.5 rounded-xl bg-white/70 border border-white/90 shadow-[0_2px_8px_rgba(0,62,156,0.03),inset_0_1px_1px_rgba(255,255,255,1)]">
-                  <span className="text-slate-400 block text-[10px] uppercase font-semibold">Location</span>
-                  <span className="text-slate-900 font-bold text-xs truncate block">{profile.location}</span>
+                <div className="p-2.5 rounded-xl bg-blue-50/60 border border-blue-200/80 shadow-[0_2px_8px_rgba(37,99,235,0.04),inset_0_1px_1px_rgba(255,255,255,1)]">
+                  <span className="text-blue-600 block text-[10px] uppercase font-bold">Location</span>
+                  <span className="text-slate-900 font-extrabold text-xs truncate block">{profile.location}</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-white/70 border border-white/90 shadow-[0_2px_8px_rgba(0,62,156,0.03),inset_0_1px_1px_rgba(255,255,255,1)]">
-                  <span className="text-slate-400 block text-[10px] uppercase font-semibold">Degree</span>
-                  <span className="text-slate-900 font-bold text-xs">B.E. CSE</span>
+                <div className="p-2.5 rounded-xl bg-emerald-50/60 border border-emerald-200/80 shadow-[0_2px_8px_rgba(16,185,129,0.04),inset_0_1px_1px_rgba(255,255,255,1)]">
+                  <span className="text-emerald-600 block text-[10px] uppercase font-bold">Degree</span>
+                  <span className="text-slate-900 font-extrabold text-xs">B.E. CSE</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-white/70 border border-white/90 shadow-[0_2px_8px_rgba(0,62,156,0.03),inset_0_1px_1px_rgba(255,255,255,1)]">
-                  <span className="text-slate-400 block text-[10px] uppercase font-semibold">Institution</span>
-                  <span className="text-slate-900 font-bold text-xs truncate block">SSIT</span>
+                <div className="p-2.5 rounded-xl bg-purple-50/60 border border-purple-200/80 shadow-[0_2px_8px_rgba(147,51,234,0.04),inset_0_1px_1px_rgba(255,255,255,1)]">
+                  <span className="text-purple-600 block text-[10px] uppercase font-bold">Institution</span>
+                  <span className="text-slate-900 font-extrabold text-xs truncate block">SSIT</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-white/70 border border-white/90 shadow-[0_2px_8px_rgba(0,62,156,0.03),inset_0_1px_1px_rgba(255,255,255,1)]">
-                  <span className="text-slate-400 block text-[10px] uppercase font-semibold">Timeline</span>
-                  <span className="text-slate-900 font-bold text-xs">{education.timeline}</span>
+                <div className="p-2.5 rounded-xl bg-amber-50/60 border border-amber-200/80 shadow-[0_2px_8px_rgba(245,158,11,0.04),inset_0_1px_1px_rgba(255,255,255,1)]">
+                  <span className="text-amber-700 block text-[10px] uppercase font-bold">Timeline</span>
+                  <span className="text-slate-900 font-extrabold text-xs">{education.timeline}</span>
                 </div>
               </div>
             </SpotlightCard>
@@ -110,13 +116,13 @@ export function About({ profile, education }: AboutProps) {
                 transition={{ duration: 0.5, delay: idx * 0.12 }}
                 whileHover={{ y: -3, scale: 1.01 }}
               >
-                <SpotlightCard className="p-4 sm:p-4.5 group">
+                <SpotlightCard spotlightColor={pillar.spotlight} className="p-4 sm:p-4.5 group">
                   <div className="flex items-start gap-3.5">
-                    <div className="p-2.5 rounded-xl bg-blue-50/80 border border-blue-100/80 shrink-0">
+                    <div className={`p-2.5 rounded-xl border shrink-0 ${pillar.iconBg}`}>
                       {pillar.icon}
                     </div>
                     <div className="space-y-1">
-                      <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#003e9c] transition-colors">
+                      <h4 className="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
                         {pillar.title}
                       </h4>
                       <p className="text-xs text-slate-600 leading-relaxed font-normal">
