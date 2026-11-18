@@ -9,8 +9,27 @@
   }
 
   html {
-    scroll-behavior: smooth;
     color-scheme: light;
+  }
+
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
   }
 
   body {
@@ -19,10 +38,10 @@
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
-  /* Custom scrollbar for light theme */
+  /* Custom scrollbar for glossy light theme */
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
   }
 
   ::-webkit-scrollbar-track {
@@ -32,6 +51,7 @@
   ::-webkit-scrollbar-thumb {
     background: #cbd5e1;
     border-radius: 9999px;
+    border: 2px solid #f8fafc;
   }
 
   ::-webkit-scrollbar-thumb:hover {

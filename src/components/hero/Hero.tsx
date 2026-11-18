@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
-import { ArrowRight, FileText, Github, Linkedin, Mail, Sparkles, CheckCircle2, Terminal } from "lucide-react";
+import { ArrowRight, FileText, Github, Linkedin, Mail } from "lucide-react";
 import type { ProfileData, EducationData } from "@/types";
 
 interface HeroProps {
@@ -40,12 +40,12 @@ export function Hero({ profile, education, onOpenResumeModal }: HeroProps) {
 
   return (
     <section id="home" className="relative pt-20 sm:pt-24 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8">
-      {/* Framer-style Curved Aviation Hero Container in Clean Medium Size */}
+      {/* Framer-style Curved Aviation Hero Container in Ultra-Glossy Glass */}
       <motion.div
         initial="hidden"
         animate="visible"
         variants={containerVariants}
-        className="relative mx-auto max-w-5xl rounded-[24px] sm:rounded-[32px] overflow-hidden border border-blue-200/70 bg-gradient-to-b from-[#eaf2ff] via-[#f4f7fe] to-[#ffffff] shadow-[0_12px_40px_-15px_rgba(0,62,156,0.1)] p-6 sm:p-10 lg:p-12"
+        className="relative mx-auto max-w-5xl rounded-[28px] sm:rounded-[36px] overflow-hidden border border-white/80 bg-gradient-to-b from-white/90 via-white/70 to-white/50 backdrop-blur-2xl backdrop-saturate-150 shadow-[0_20px_50px_rgba(0,62,156,0.06),inset_0_1px_2px_0_rgba(255,255,255,0.95)] p-6 sm:p-10 lg:p-14"
       >
         {/* Ambient Top Light Beam with Breathing Animation */}
         <motion.div
@@ -56,33 +56,17 @@ export function Hero({ profile, education, onOpenResumeModal }: HeroProps) {
 
         {/* Subtle grid line accents */}
         <div
-          className="absolute inset-0 opacity-[0.03] pointer-events-none"
+          className="absolute inset-0 opacity-[0.025] pointer-events-none"
           style={{
             backgroundImage: `linear-gradient(to right, rgba(0, 62, 156, 0.4) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 62, 156, 0.4) 1px, transparent 1px)`,
             backgroundSize: "48px 48px",
           }}
         />
 
-        <div className="relative z-10 flex flex-col items-center text-center space-y-5 max-w-3xl mx-auto">
+        <div className="relative z-10 flex flex-col items-center text-center space-y-6 max-w-3xl mx-auto">
           
-          {/* Rare-to-find Pulsing Radar Availability Pill */}
-          <motion.div
-            variants={itemVariants}
-            animate={{ y: [0, -3, 0] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-300/80 bg-emerald-50/80 backdrop-blur-md shadow-sm"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            <span className="text-[11px] font-bold tracking-wider text-emerald-800 uppercase font-mono">
-              Available for Internships &bull; Full-Stack &amp; AI Engineering
-            </span>
-          </motion.div>
-
           {/* Main Hero Headline */}
-          <motion.div variants={itemVariants} className="space-y-3 pt-1">
+          <motion.div variants={itemVariants} className="space-y-3.5 pt-2">
             <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight text-slate-900 leading-[1.12]">
               Crafting Intelligent Systems &amp;{" "}
               <span className="bg-gradient-to-r from-[#002b66] via-[#003e9c] to-[#0052cc] bg-clip-text text-transparent">
@@ -94,25 +78,25 @@ export function Hero({ profile, education, onOpenResumeModal }: HeroProps) {
             </p>
           </motion.div>
 
-          {/* Action Pill Buttons with Spring Hover/Tap & Sheen Effect */}
+          {/* Action Pill Buttons with Spring Hover/Tap & Glossy Sheen Effect */}
           <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center gap-3 pt-1">
             <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.96 }}>
               <Link
                 href="#projects"
-                className="relative overflow-hidden inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-white bg-[#003e9c] hover:bg-[#0052cc] shadow-md shadow-blue-900/20 transition-all group"
+                className="relative overflow-hidden inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-white bg-[#003e9c] hover:bg-[#0052cc] shadow-[0_4px_20px_rgba(0,62,156,0.3),inset_0_1px_0_rgba(255,255,255,0.3)] transition-all group"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   <span>Explore My Projects</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </span>
-                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 pointer-events-none" />
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 pointer-events-none" />
               </Link>
             </motion.div>
 
             <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.96 }}>
               <Link
                 href="#contact"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-bold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200/90 shadow-sm transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-bold text-slate-700 bg-white/80 hover:bg-white border border-white/90 shadow-[0_4px_16px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.9)] backdrop-blur-md transition-colors"
               >
                 <Mail className="w-3.5 h-3.5 text-[#003e9c]" />
                 <span>Let&apos;s Connect</span>
@@ -124,14 +108,14 @@ export function Hero({ profile, education, onOpenResumeModal }: HeroProps) {
               whileTap={{ scale: 0.96 }}
               type="button"
               onClick={onOpenResumeModal}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-bold text-[#003e9c] bg-blue-50/80 hover:bg-blue-100/80 border border-blue-200/80 shadow-sm transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-bold text-[#003e9c] bg-blue-50/70 hover:bg-blue-100/70 border border-blue-200/60 shadow-[0_4px_16px_rgba(0,62,156,0.04),inset_0_1px_1px_rgba(255,255,255,0.9)] backdrop-blur-md transition-colors"
             >
               <FileText className="w-3.5 h-3.5 text-[#003e9c]" />
               <span>View Verified CV</span>
             </motion.button>
           </motion.div>
 
-          {/* Social Proof Pills */}
+          {/* Social Proof Glossy Pills */}
           <motion.div variants={itemVariants} className="flex items-center justify-center gap-2.5 pt-1">
             <motion.a
               whileHover={{ scale: 1.07 }}
@@ -139,7 +123,7 @@ export function Hero({ profile, education, onOpenResumeModal }: HeroProps) {
               href="https://github.com/MohammedAffan-786"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-semibold text-slate-700 hover:text-slate-900 hover:bg-slate-50 shadow-sm transition-colors"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-white/90 text-xs font-semibold text-slate-700 hover:text-slate-900 hover:bg-white shadow-[0_2px_8px_rgba(0,0,0,0.03),inset_0_1px_0_rgba(255,255,255,0.9)] transition-colors"
             >
               <Github className="w-3.5 h-3.5" />
               <span>GitHub</span>
@@ -150,23 +134,23 @@ export function Hero({ profile, education, onOpenResumeModal }: HeroProps) {
               href="https://linkedin.com/in/mdaffan1"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-semibold text-slate-700 hover:text-[#003e9c] hover:bg-slate-50 shadow-sm transition-colors"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-white/90 text-xs font-semibold text-slate-700 hover:text-[#003e9c] hover:bg-white shadow-[0_2px_8px_rgba(0,0,0,0.03),inset_0_1px_0_rgba(255,255,255,0.9)] transition-colors"
             >
               <Linkedin className="w-3.5 h-3.5" />
               <span>LinkedIn</span>
             </motion.a>
           </motion.div>
 
-          {/* Rare-to-find Glass Highlights Metric Strip (Medium Sized) */}
+          {/* Glass Highlights Metric Strip (Ultra-Glossy Card Finish) */}
           <motion.div
             variants={itemVariants}
-            className="w-full pt-6 mt-2 border-t border-slate-200/80 grid grid-cols-2 sm:grid-cols-4 gap-3 text-left"
+            className="w-full pt-6 mt-2 border-t border-slate-200/60 grid grid-cols-2 sm:grid-cols-4 gap-3 text-left"
           >
             {highlights.map((item, idx) => (
               <motion.div
                 key={idx}
                 whileHover={{ y: -2 }}
-                className="p-3 rounded-xl bg-white/70 border border-slate-200/70 backdrop-blur-md shadow-sm"
+                className="p-3.5 rounded-2xl bg-white/60 hover:bg-white/80 border border-white/80 backdrop-blur-xl shadow-[0_4px_16px_rgba(0,62,156,0.03),inset_0_1px_1px_rgba(255,255,255,0.95)] transition-all"
               >
                 <div className="text-[10px] font-mono uppercase text-slate-500 font-semibold mb-0.5">
                   {item.label}

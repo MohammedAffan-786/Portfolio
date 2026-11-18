@@ -17,7 +17,6 @@ export function Contact({ contact }: ContactProps) {
     navigator.clipboard.writeText(contact.email);
     setCopied(true);
     
-    // Interactive Framer-style micro celebration
     try {
       confetti({
         particleCount: 35,
@@ -34,13 +33,13 @@ export function Contact({ contact }: ContactProps) {
 
   return (
     <section id="contact" className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
-      {/* Framer-style Curved Aviation CTA Container (Medium Balanced Size with Motion) */}
+      {/* Framer-style Curved Aviation CTA Container in Ultra-Glossy Glass */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-40px" }}
         transition={{ duration: 0.6 }}
-        className="relative mx-auto max-w-5xl rounded-[28px] sm:rounded-[36px] overflow-hidden border border-blue-200/80 bg-gradient-to-b from-[#eaf2ff] via-[#f1f6ff] to-[#ffffff] p-6 sm:p-10 lg:p-12 shadow-[0_16px_45px_-12px_rgba(0,62,156,0.1)]"
+        className="relative mx-auto max-w-5xl rounded-[28px] sm:rounded-[36px] overflow-hidden border border-white/80 bg-gradient-to-b from-white/90 via-white/70 to-white/50 backdrop-blur-2xl backdrop-saturate-150 p-6 sm:p-10 lg:p-12 shadow-[0_20px_50px_rgba(0,62,156,0.06),inset_0_1px_2px_0_rgba(255,255,255,0.95)]"
       >
         {/* Ambient Top Light Beam with Breathing Glow */}
         <motion.div
@@ -54,7 +53,7 @@ export function Contact({ contact }: ContactProps) {
           <motion.div
             animate={{ y: [0, -3, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-blue-200/80 bg-white/90 backdrop-blur-md shadow-sm"
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-blue-200/80 bg-white/80 backdrop-blur-md shadow-sm"
           >
             <span className="w-2 h-2 rounded-full bg-[#003e9c] animate-pulse" />
             <span className="text-[11px] font-bold tracking-wider text-[#003e9c] uppercase font-mono">
@@ -72,16 +71,19 @@ export function Contact({ contact }: ContactProps) {
             Interested in software engineering internships, open-source collaboration, or discussing distributed systems and AI architectures? My inbox is always open.
           </p>
 
-          {/* Main Action Buttons */}
+          {/* Main Action Buttons with Glossy Effects */}
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <motion.a
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.96 }}
               href={`mailto:${contact.email}?subject=Hello%20Mohammed%20Affan%20-%20Opportunity%20/%20Collaboration`}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-white bg-[#003e9c] hover:bg-[#0052cc] shadow-md shadow-blue-900/20 transition-colors"
+              className="relative overflow-hidden inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-white bg-[#003e9c] hover:bg-[#0052cc] shadow-[0_4px_20px_rgba(0,62,156,0.3),inset_0_1px_0_rgba(255,255,255,0.3)] transition-all group"
             >
-              <Send className="w-3.5 h-3.5" />
-              <span>Compose Email Directly</span>
+              <span className="relative z-10 flex items-center gap-2">
+                <Send className="w-3.5 h-3.5" />
+                <span>Compose Email Directly</span>
+              </span>
+              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 pointer-events-none" />
             </motion.a>
 
             <motion.button
@@ -89,7 +91,7 @@ export function Contact({ contact }: ContactProps) {
               whileTap={{ scale: 0.96 }}
               type="button"
               onClick={copyEmail}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-bold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200/90 shadow-sm transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-bold text-slate-700 bg-white/80 hover:bg-white border border-white/90 shadow-[0_4px_16px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.9)] backdrop-blur-md transition-colors"
             >
               {copied ? (
                 <>
@@ -105,7 +107,7 @@ export function Contact({ contact }: ContactProps) {
             </motion.button>
           </div>
 
-          {/* Connected Cards: Profiles & Details (Medium Cards with Hover Motion) */}
+          {/* Connected Cards: Profiles & Details (Glossy Glass Finish) */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full pt-6">
             {/* LinkedIn */}
             <motion.a
@@ -114,7 +116,7 @@ export function Contact({ contact }: ContactProps) {
               href={contact.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-4 rounded-xl bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-[#003e9c]/30 transition-all shadow-sm flex flex-col items-center text-center space-y-1.5"
+              className="group p-4 rounded-xl bg-white/70 hover:bg-white/90 border border-white/80 backdrop-blur-xl shadow-[0_4px_16px_rgba(0,0,0,0.02),inset_0_1px_1px_rgba(255,255,255,0.9)] transition-all flex flex-col items-center text-center space-y-1.5"
             >
               <div className="p-2 rounded-full bg-blue-50 text-[#003e9c] border border-blue-200 group-hover:scale-105 transition-transform">
                 <Linkedin className="w-4 h-4" />
@@ -133,7 +135,7 @@ export function Contact({ contact }: ContactProps) {
               href={contact.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-4 rounded-xl bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-[#003e9c]/30 transition-all shadow-sm flex flex-col items-center text-center space-y-1.5"
+              className="group p-4 rounded-xl bg-white/70 hover:bg-white/90 border border-white/80 backdrop-blur-xl shadow-[0_4px_16px_rgba(0,0,0,0.02),inset_0_1px_1px_rgba(255,255,255,0.9)] transition-all flex flex-col items-center text-center space-y-1.5"
             >
               <div className="p-2 rounded-full bg-slate-100 text-slate-800 border border-slate-200 group-hover:scale-105 transition-transform">
                 <Github className="w-4 h-4" />
@@ -148,7 +150,7 @@ export function Contact({ contact }: ContactProps) {
             {/* Location */}
             <motion.div
               whileHover={{ y: -4, scale: 1.02 }}
-              className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-sm flex flex-col items-center text-center space-y-1.5"
+              className="p-4 rounded-xl bg-white/70 border border-white/80 backdrop-blur-xl shadow-[0_4px_16px_rgba(0,0,0,0.02),inset_0_1px_1px_rgba(255,255,255,0.9)] flex flex-col items-center text-center space-y-1.5"
             >
               <div className="p-2 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200">
                 <MapPin className="w-4 h-4" />
@@ -159,13 +161,13 @@ export function Contact({ contact }: ContactProps) {
           </div>
 
           {/* Open For Badges */}
-          <div className="pt-4 border-t border-blue-200/60 w-full flex flex-col sm:flex-row items-center justify-between gap-2.5 text-xs text-slate-500">
+          <div className="pt-4 border-t border-slate-200/60 w-full flex flex-col sm:flex-row items-center justify-between gap-2.5 text-xs text-slate-500">
             <span className="font-bold text-slate-700 text-xs">Available For:</span>
             <div className="flex flex-wrap gap-1.5 justify-center">
               {contact.openFor.map((item) => (
                 <span
                   key={item}
-                  className="px-3 py-0.5 rounded-full bg-white border border-slate-200 text-slate-700 font-mono text-[10px] font-medium shadow-sm"
+                  className="px-3 py-0.5 rounded-full bg-white/80 border border-white/90 text-slate-700 font-mono text-[10px] font-medium shadow-sm backdrop-blur-md"
                 >
                   {item}
                 </span>
