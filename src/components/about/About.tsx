@@ -91,7 +91,7 @@ export function About({ profile, education }: AboutProps) {
                 className="p-6 rounded-[24px] bg-white border border-slate-200/90 hover:border-[#003e9c]/40 transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/5 hover:-translate-y-0.5 group"
               >
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-2xl bg-blue-50/80 border border-blue-100 group-hover:scale-110 group-hover:bg-[#003e9c] text-[#003e9c] group-hover:text-white transition-all">
+                  <div className="p-3 rounded-2xl bg-blue-50/80 border border-blue-100/80 transition-colors">
                     {pillar.icon}
                   </div>
                   <div className="space-y-1.5">
