@@ -5,10 +5,9 @@ import {
   getProjects,
   getContact,
 } from "@/lib/data";
-import { fetchGitHubData } from "@/lib/github";
 import { PortfolioClient } from "@/components/PortfolioClient";
 
-export const revalidate = 3600; // 1-hour ISR revalidation
+export const revalidate = 3600;
 
 export default async function HomePage() {
   const profile = getProfile();
@@ -17,8 +16,6 @@ export default async function HomePage() {
   const projects = getProjects();
   const contact = getContact();
 
-  const githubData = await fetchGitHubData("MohammedAffan-786");
-
   return (
     <PortfolioClient
       profile={profile}
@@ -26,11 +23,6 @@ export default async function HomePage() {
       skills={skills}
       projects={projects}
       contact={contact}
-      initialGitHub={{
-        repos: githubData.repos,
-        error: githubData.error || null,
-        lastFetched: githubData.lastFetched,
-      }}
     />
   );
 }

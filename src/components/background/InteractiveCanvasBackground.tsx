@@ -56,11 +56,11 @@ export function InteractiveCanvasBackground() {
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseleave", handleMouseLeave);
 
-    const particleCount = Math.min(Math.floor((width * height) / 20000), 60);
+    const particleCount = Math.min(Math.floor((width * height) / 22000), 55);
     const particles: Particle[] = [];
 
     for (let i = 0; i < particleCount; i++) {
-      const baseAlpha = Math.random() * 0.4 + 0.15;
+      const baseAlpha = Math.random() * 0.35 + 0.15;
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
@@ -103,14 +103,14 @@ export function InteractiveCanvasBackground() {
           const force = (1 - dist / mouse.radius) * 1.2;
           p1.x -= (dx / dist) * force;
           p1.y -= (dy / dist) * force;
-          p1.alpha = Math.min(1, p1.baseAlpha + 0.4);
+          p1.alpha = Math.min(0.8, p1.baseAlpha + 0.3);
         } else {
           p1.alpha = p1.baseAlpha;
         }
 
         ctx.beginPath();
         ctx.arc(p1.x, p1.y, p1.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(85, 148, 242, ${p1.alpha})`;
+        ctx.fillStyle = `rgba(0, 62, 156, ${p1.alpha * 0.6})`;
         ctx.fill();
 
         for (let j = i + 1; j < particles.length; j++) {
@@ -119,13 +119,13 @@ export function InteractiveCanvasBackground() {
           const cdy = p1.y - p2.y;
           const cdist = Math.sqrt(cdx * cdx + cdy * cdy);
 
-          if (cdist < 100) {
-            const lineAlpha = (1 - cdist / 100) * 0.14;
+          if (cdist < 110) {
+            const lineAlpha = (1 - cdist / 110) * 0.12;
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
             ctx.strokeStyle = `rgba(0, 62, 156, ${lineAlpha})`;
-            ctx.lineWidth = 0.7;
+            ctx.lineWidth = 0.8;
             ctx.stroke();
           }
         }
@@ -147,16 +147,16 @@ export function InteractiveCanvasBackground() {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
-      {/* Deep aviation atmospheric lighting */}
-      <div className="absolute top-[-15%] left-1/2 -translate-x-1/2 w-[1100px] h-[650px] bg-gradient-to-b from-[#5594f2]/18 via-[#003e9c]/15 to-transparent blur-[160px] pointer-events-none rounded-full" />
-      <div className="absolute top-[40%] right-[-10%] w-[700px] h-[700px] bg-gradient-to-br from-[#003e9c]/15 via-[#040d36]/20 to-transparent blur-[180px] pointer-events-none rounded-full" />
-      <div className="absolute bottom-[-15%] left-[-10%] w-[750px] h-[750px] bg-gradient-to-tr from-[#003e9c]/12 via-[#040d36]/25 to-transparent blur-[190px] pointer-events-none rounded-full" />
+      {/* Radiant light atmospheric lighting */}
+      <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1100px] h-[650px] bg-gradient-to-b from-[#5594f2]/10 via-[#003e9c]/5 to-transparent blur-[160px] pointer-events-none rounded-full" />
+      <div className="absolute top-[35%] right-[-10%] w-[700px] h-[700px] bg-gradient-to-br from-[#003e9c]/6 via-[#5594f2]/8 to-transparent blur-[180px] pointer-events-none rounded-full" />
+      <div className="absolute bottom-[-10%] left-[-10%] w-[750px] h-[750px] bg-gradient-to-tr from-[#003e9c]/5 via-[#5594f2]/7 to-transparent blur-[190px] pointer-events-none rounded-full" />
 
-      {/* Subtle aviation technical grid */}
+      {/* Subtle technical grid for crisp light aesthetic */}
       <div
-        className="absolute inset-0 opacity-[0.025] pointer-events-none"
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
-          backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0.25) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(to right, rgba(0, 62, 156, 0.4) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 62, 156, 0.4) 1px, transparent 1px)`,
           backgroundSize: "64px 64px",
         }}
       />

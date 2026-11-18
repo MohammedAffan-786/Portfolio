@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { X, ExternalLink, Github, CheckCircle, Clock, AlertTriangle, Cpu, Layers, ShieldCheck } from "lucide-react";
+import { X, ExternalLink, Github, CheckCircle, Clock, AlertTriangle, Layers, ShieldCheck } from "lucide-react";
 import type { ProjectItem } from "@/types";
 
 interface ProjectModalProps {
@@ -29,23 +29,23 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
   const getStatusBadge = (statusType: ProjectItem["statusType"], status: string) => {
     if (statusType === "completed") {
       return (
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-emerald-950/60 text-emerald-300 border border-emerald-500/30">
-          <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-300">
+          <CheckCircle className="w-3.5 h-3.5 text-emerald-600" />
           {status}
         </span>
       );
     }
     if (statusType === "in-development") {
       return (
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-sky-950/60 text-sky-300 border border-sky-500/30">
-          <Clock className="w-3.5 h-3.5 text-sky-400" />
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold bg-blue-50 text-[#003e9c] border border-blue-200">
+          <Clock className="w-3.5 h-3.5 text-[#003e9c]" />
           {status}
         </span>
       );
     }
     return (
-      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-amber-950/60 text-amber-300 border border-amber-500/30">
-        <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />
+      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold bg-amber-50 text-amber-700 border border-amber-300">
+        <AlertTriangle className="w-3.5 h-3.5 text-amber-600" />
         {status}
       </span>
     );
@@ -53,19 +53,19 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-black/85 backdrop-blur-md animate-fade-in"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-slate-900/60 backdrop-blur-md animate-fade-in"
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
     >
       <div
-        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[#0d0f15] border border-white/[0.12] rounded-2xl shadow-2xl p-6 sm:p-8 space-y-8 text-zinc-200"
+        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-white border border-slate-200 rounded-[32px] shadow-2xl p-6 sm:p-8 space-y-8 text-slate-800"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-xl bg-zinc-900 border border-white/[0.08] text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+          className="absolute top-6 right-6 p-2 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-600 hover:text-slate-900 transition-colors focus:outline-none"
           aria-label="Close project modal"
         >
           <X className="w-5 h-5" />
@@ -75,14 +75,14 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         <div className="space-y-3 pr-10">
           <div className="flex flex-wrap items-center gap-3">
             {getStatusBadge(project.statusType, project.status)}
-            <span className="text-xs font-mono text-zinc-400">
+            <span className="text-xs font-mono text-slate-500 font-semibold">
               System Architecture &amp; Case Study
             </span>
           </div>
-          <h2 id="modal-title" className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+          <h2 id="modal-title" className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
             {project.title}
           </h2>
-          <p className="text-sm sm:text-base text-sky-300 font-medium">
+          <p className="text-sm sm:text-base text-[#003e9c] font-semibold">
             {project.subtitle}
           </p>
         </div>
@@ -94,13 +94,13 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 text-xs font-medium text-white bg-zinc-800 hover:bg-zinc-700 border border-white/[0.1] rounded-lg transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white bg-[#003e9c] hover:bg-[#0052cc] rounded-full shadow-md transition-colors"
             >
               <Github className="w-4 h-4" />
               View GitHub Repository
             </a>
           ) : (
-            <div className="inline-flex items-center gap-2 px-4 py-2 text-xs font-mono text-zinc-400 bg-zinc-900 border border-white/[0.05] rounded-lg">
+            <div className="inline-flex items-center gap-2 px-4 py-2 text-xs font-mono text-slate-500 bg-slate-100 border border-slate-200 rounded-full">
               <Github className="w-4 h-4 opacity-40" />
               Repository: Private / In Local Development
             </div>
@@ -111,7 +111,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               href={project.liveDemoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 text-xs font-medium text-white bg-sky-600 hover:bg-sky-500 rounded-lg transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-full transition-colors"
             >
               <ExternalLink className="w-4 h-4" />
               Launch Live Demo
@@ -121,43 +121,58 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
         {/* Section 1: Problem & Solution */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="p-5 rounded-xl bg-zinc-950/60 border border-white/[0.06] space-y-2">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-red-400 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-red-400" />
+          <div className="p-6 rounded-2xl bg-rose-50/50 border border-rose-200/60 space-y-2">
+            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-rose-700 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-rose-500" />
               Problem Statement
             </h3>
-            <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
               {project.problemStatement}
             </p>
           </div>
 
-          <div className="p-5 rounded-xl bg-zinc-950/60 border border-white/[0.06] space-y-2">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-emerald-400 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-400" />
+          <div className="p-6 rounded-2xl bg-emerald-50/50 border border-emerald-200/60 space-y-2">
+            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-700 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-500" />
               Proposed Solution
             </h3>
-            <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
               {project.proposedSolution}
             </p>
           </div>
         </div>
 
         {/* Section 2: Architecture & Implementation Notes */}
-        <div className="p-6 rounded-xl bg-zinc-950/80 border border-white/[0.08] space-y-4">
-          <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
-            <div className="flex items-center gap-2 text-sky-400 font-mono text-xs uppercase tracking-wider font-semibold">
+        <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-4">
+          <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+            <div className="flex items-center gap-2 text-[#003e9c] font-mono text-xs uppercase tracking-wider font-bold">
               <Layers className="w-4 h-4" />
               System Architecture &amp; Data Flow
             </div>
-            <span className="text-[11px] font-mono text-zinc-400">Verified Technical Layout</span>
+            <span className="text-[11px] font-mono text-slate-500 font-medium">Verified Technical Layout</span>
           </div>
 
-          <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
             {project.architectureNotes}
           </p>
 
           {/* Structured Architecture Flow Diagram */}
-          <div className="p-4 rounded-lg bg-[#07080b] border border-white/[0.04] font-mono text-xs text-zinc-300 overflow-x-auto">
+          <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 font-mono text-xs text-slate-100 overflow-x-auto shadow-inner">
+            {project.id === "research-rabbit-ai" && (
+              <pre className="text-emerald-400 leading-normal">
+{`+-------------------------+       Vector Query     +----------------------------------------+
+|   Research Discovery UI |<---------------------->|        FastAPI Semantic Engine         |
+|  (React 19 + Graph UI)  |                        |  (Vector Embeddings & Citation Mapper) |
++-------------------------+                        +-------------------+--------------------+
+                                                                       | Multi-hop Query
+                                                                       v
++-------------------------+                        +----------------------------------------+
+| Qdrant Vector Database  |<-----------------------|         PostgreSQL Database            |
+| (Semantic Paper Vectors)|   Similarity Match     | (Paper Metadata, Citations & Reviews)  |
++-------------------------+                        +----------------------------------------+`}
+              </pre>
+            )}
+
             {project.id === "devflow-ai" && (
               <pre className="text-sky-300 leading-normal">
 {`+-------------------------+       HTTP/REST        +----------------------------------------+
@@ -219,7 +234,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             )}
 
             {project.id === "mountainsafe-ai" && (
-              <pre className="text-zinc-400 leading-normal">
+              <pre className="text-slate-400 leading-normal">
 {`[CONCEPTUAL PIPELINE ONLY — NOT YET IMPLEMENTED]
 +-------------------------+                        +----------------------------------------+
 | GIS & Elevation Data    |--- (Planned Stream) -->|      Risk Index Prediction Service     |
@@ -233,14 +248,14 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         {/* Section 3: Implemented vs Planned Features */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-3">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-emerald-400 flex items-center gap-1.5 font-semibold">
+            <h4 className="text-xs font-mono uppercase tracking-wider text-emerald-700 flex items-center gap-1.5 font-bold">
               <CheckCircle className="w-3.5 h-3.5" />
               Verified Implemented Features
             </h4>
             <ul className="space-y-2">
               {project.implementedFeatures.map((feat, i) => (
-                <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-zinc-300">
-                  <span className="text-emerald-400 mt-0.5">&bull;</span>
+                <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700 font-normal">
+                  <span className="text-emerald-600 mt-0.5 font-bold">&bull;</span>
                   <span>{feat}</span>
                 </li>
               ))}
@@ -248,14 +263,14 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           </div>
 
           <div className="space-y-3">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-amber-400 flex items-center gap-1.5 font-semibold">
+            <h4 className="text-xs font-mono uppercase tracking-wider text-amber-700 flex items-center gap-1.5 font-bold">
               <Clock className="w-3.5 h-3.5" />
               Planned Roadmap &amp; Challenges
             </h4>
             <ul className="space-y-2">
               {project.plannedFeatures.map((feat, i) => (
-                <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-zinc-400">
-                  <span className="text-amber-400 mt-0.5">&bull;</span>
+                <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-slate-600 font-normal">
+                  <span className="text-amber-600 mt-0.5 font-bold">&bull;</span>
                   <span>{feat}</span>
                 </li>
               ))}
@@ -264,15 +279,15 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         {/* Technology Stack Tags */}
-        <div className="space-y-2 pt-2 border-t border-white/[0.06]">
-          <span className="text-xs font-mono uppercase tracking-wider text-zinc-400">
+        <div className="space-y-2 pt-2 border-t border-slate-200">
+          <span className="text-xs font-mono uppercase tracking-wider text-slate-500 font-bold">
             Technologies Applied:
           </span>
           <div className="flex flex-wrap gap-2">
             {project.techStack.map((tech) => (
               <span
                 key={tech}
-                className="px-2.5 py-1 rounded-md text-xs font-mono bg-zinc-900 border border-white/[0.06] text-zinc-300"
+                className="px-3 py-1 rounded-full text-xs font-mono font-medium bg-slate-100 border border-slate-200 text-slate-700"
               >
                 {tech}
               </span>
@@ -281,10 +296,10 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         {/* Verification Notice */}
-        <div className="p-4 rounded-xl bg-zinc-950 border border-white/[0.08] flex items-start gap-3 text-xs text-zinc-400">
-          <ShieldCheck className="w-4 h-4 text-sky-400 mt-0.5 flex-shrink-0" />
+        <div className="p-4 rounded-2xl bg-blue-50/60 border border-blue-200 flex items-start gap-3 text-xs text-slate-600">
+          <ShieldCheck className="w-4 h-4 text-[#003e9c] mt-0.5 flex-shrink-0" />
           <div>
-            <strong className="text-zinc-200 block mb-0.5 font-mono text-[11px]">
+            <strong className="text-slate-900 block mb-0.5 font-mono text-[11px] font-bold">
               DATA INTEGRITY AUDIT NOTE
             </strong>
             {project.verificationNotice}

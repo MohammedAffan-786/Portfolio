@@ -67,9 +67,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${manrope.variable} ${jetbrainsMono.variable} font-sans antialiased bg-[#050716] text-white min-h-screen selection:bg-[#5594f2]/30 selection:text-white`}
+        className={`${manrope.variable} ${jetbrainsMono.variable} font-sans antialiased bg-[#f8fafc] text-slate-900 min-h-screen selection:bg-[#003e9c]/15 selection:text-[#003e9c]`}
       >
         {children}
       </body>
