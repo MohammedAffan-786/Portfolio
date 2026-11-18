@@ -190,9 +190,19 @@ export function ResumeModal({ isOpen, onClose, profile, education, skills }: Res
                   </div>
 
                   <div className="p-3 rounded-lg bg-emerald-50/50 border border-emerald-200">
-                    <div className="flex justify-between font-bold text-slate-900">
+                    <div className="flex justify-between items-center font-bold text-slate-900">
                       <span>EduReach &mdash; Agentic College Information Assistant</span>
-                      <span className="text-emerald-700 text-xs font-mono font-bold">Completed</span>
+                      <div className="flex items-center gap-2">
+                        <a
+                          href="https://edureach-college-pi.vercel.app/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-emerald-700 hover:text-emerald-800 text-[11px] font-mono font-bold underline"
+                        >
+                          Live App &rarr;
+                        </a>
+                        <span className="text-emerald-700 text-xs font-mono font-bold">Completed</span>
+                      </div>
                     </div>
                     <p className="text-xs text-slate-600 mt-1 font-normal">
                       Node.js 24 + Express 5, React 19 + Vite, LangChain, Google Gemini, and MongoDB vector store.
@@ -200,9 +210,19 @@ export function ResumeModal({ isOpen, onClose, profile, education, skills }: Res
                   </div>
 
                   <div className="p-3 rounded-lg bg-emerald-50/50 border border-emerald-200">
-                    <div className="flex justify-between font-bold text-slate-900">
+                    <div className="flex justify-between items-center font-bold text-slate-900">
                       <span>Research Rabbit AI &mdash; Semantic Literature Discovery</span>
-                      <span className="text-emerald-700 text-xs font-mono font-bold">Completed</span>
+                      <div className="flex items-center gap-2">
+                        <a
+                          href="https://researchrabbitai.vercel.app/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-emerald-700 hover:text-emerald-800 text-[11px] font-mono font-bold underline"
+                        >
+                          Live App &rarr;
+                        </a>
+                        <span className="text-emerald-700 text-xs font-mono font-bold">Completed</span>
+                      </div>
                     </div>
                     <p className="text-xs text-slate-600 mt-1 font-normal">
                       FastAPI service, Qdrant vector database, citation graph mapper, and RAG factual synthesis.

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FolderGit2, Github, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { FolderGit2, Github, ArrowUpRight, CheckCircle2, ExternalLink } from "lucide-react";
 import { SpotlightCard } from "@/components/ui/SpotlightCard";
 import type { ProjectItem } from "@/types";
 import { ProjectModal } from "./ProjectModal";
@@ -121,8 +121,24 @@ export function Projects({ projects }: ProjectsProps) {
                           {project.status}
                         </span>
 
-                        <div className="p-1 rounded-full bg-slate-100 text-slate-600 group-hover:text-white group-hover:bg-[#003e9c] transition-all group-hover:scale-105 shadow-sm">
-                          <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        <div className="flex items-center gap-1.5">
+                          {project.liveDemoUrl && (
+                            <a
+                              href={project.liveDemoUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold text-emerald-700 bg-emerald-50/90 hover:bg-emerald-100 border border-emerald-300 shadow-sm transition-all hover:scale-105"
+                              title={`Launch live demo for ${project.title}`}
+                            >
+                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                              <span>Live Demo</span>
+                              <ExternalLink className="w-2.5 h-2.5" />
+                            </a>
+                          )}
+                          <div className="p-1 rounded-full bg-slate-100 text-slate-600 group-hover:text-white group-hover:bg-[#003e9c] transition-all group-hover:scale-105 shadow-sm">
+                            <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                          </div>
                         </div>
                       </div>
 
@@ -162,12 +178,32 @@ export function Projects({ projects }: ProjectsProps) {
                         <span className="text-[11px] font-semibold text-slate-700 group-hover:text-[#003e9c] transition-colors">
                           View Architecture &rarr;
                         </span>
-                        {project.githubUrl && (
-                          <span className="text-[#003e9c] flex items-center gap-1 font-bold text-[11px]">
-                            <Github className="w-3 h-3" />
-                            Code
-                          </span>
-                        )}
+                        <div className="flex items-center gap-2">
+                          {project.liveDemoUrl && (
+                            <a
+                              href={project.liveDemoUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="text-emerald-700 hover:text-emerald-800 flex items-center gap-1 font-bold text-[11px] hover:underline"
+                            >
+                              <ExternalLink className="w-3 h-3" />
+                              Live Demo
+                            </a>
+                          )}
+                          {project.githubUrl && (
+                            <a
+                              href={project.githubUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="text-[#003e9c] hover:text-[#002b66] flex items-center gap-1 font-bold text-[11px] hover:underline"
+                            >
+                              <Github className="w-3 h-3" />
+                              Code
+                            </a>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </SpotlightCard>

@@ -133,8 +133,9 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                   href={project.liveDemoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2 text-xs font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-full transition-colors"
+                  className="inline-flex items-center gap-2 px-5 py-2 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-full shadow-[0_4px_16px_rgba(16,185,129,0.3)] transition-colors"
                 >
+                  <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                   <ExternalLink className="w-4 h-4" />
                   Launch Live Demo
                 </motion.a>
