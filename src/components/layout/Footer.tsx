@@ -22,8 +22,8 @@ export function Footer({ githubUrl, linkedinUrl, email }: FooterProps) {
           <div className="flex flex-col items-center md:items-start space-y-1.5 text-center md:text-left">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-[#003e9c]" />
-              <span className="font-extrabold text-slate-900 text-base tracking-tight">
-                Mohammed Affan Farooq
+              <span className="font-extrabold text-slate-900 text-base tracking-wider uppercase">
+                MOHAMMED AFFAN FAROOQ
               </span>
             </div>
             <p className="text-slate-600 text-xs max-w-md font-normal">

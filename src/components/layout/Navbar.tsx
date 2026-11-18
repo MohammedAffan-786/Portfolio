@@ -60,28 +60,14 @@ export function Navbar({ githubUrl, linkedinUrl, email }: NavbarProps) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Framer-style Pill Brand Logo */}
+          {/* Clean Brand Full Name in CAPS */}
           <Link
             href="#home"
-            className="group flex items-center space-x-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#003e9c] rounded-full"
-            aria-label="Mohammed Affan Portfolio Home"
+            className="group flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#003e9c] rounded-full py-1"
+            aria-label="MOHAMMED AFFAN Portfolio Home"
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-3.5 py-1.5 rounded-full bg-[#003e9c] hover:bg-[#0052cc] text-white flex items-center gap-2 shadow-md shadow-blue-900/20 transition-colors"
-            >
-              <span className="font-bold text-xs tracking-wider uppercase">
-                Affan
-              </span>
-              <motion.span
-                animate={{ scale: [1, 1.4, 1], opacity: [0.7, 1, 0.7] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="w-1.5 h-1.5 rounded-full bg-[#5594f2]"
-              />
-            </motion.div>
-            <span className="hidden sm:inline-block font-bold text-sm tracking-tight text-slate-800 group-hover:text-[#003e9c] transition-colors">
-              Mohammed Affan
+            <span className="font-extrabold text-sm sm:text-base tracking-wider text-slate-900 group-hover:text-[#003e9c] transition-colors">
+              MOHAMMED AFFAN
             </span>
           </Link>
 

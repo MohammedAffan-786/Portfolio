@@ -78,7 +78,7 @@ export function ResumeModal({ isOpen, onClose, profile, education, skills }: Res
                 VERIFIED CURRICULUM VITAE
               </div>
               <h2 id="resume-title" className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
-                Mohammed Affan &mdash; Engineering CV
+                MOHAMMED AFFAN FAROOQ &mdash; Engineering CV
               </h2>
               <p className="text-xs text-slate-600 font-mono">
                 {profile.headline} &bull; {profile.location}
@@ -173,20 +173,20 @@ export function ResumeModal({ isOpen, onClose, profile, education, skills }: Res
                   Featured Engineering Projects
                 </h3>
                 <div className="space-y-2 pl-2">
-                  <div className="p-3 rounded-lg bg-slate-50 border border-slate-200/80">
+                  <div className="p-3 rounded-lg bg-emerald-50/50 border border-emerald-200">
                     <div className="flex justify-between font-bold text-slate-900">
                       <span>DevFlow AI &mdash; Autonomous Code &amp; Security Platform</span>
-                      <span className="text-amber-700 text-xs font-mono">In Development</span>
+                      <span className="text-emerald-700 text-xs font-mono font-bold">Completed</span>
                     </div>
                     <p className="text-xs text-slate-600 mt-1 font-normal">
                       Full monorepo featuring Node.js/Express API, Python AI Service, BullMQ queues, Docker/gVisor sandboxed test runner, and AST code extraction.
                     </p>
                   </div>
 
-                  <div className="p-3 rounded-lg bg-slate-50 border border-slate-200/80">
+                  <div className="p-3 rounded-lg bg-emerald-50/50 border border-emerald-200">
                     <div className="flex justify-between font-bold text-slate-900">
                       <span>EduReach &mdash; Agentic College Information Assistant</span>
-                      <span className="text-[#003e9c] text-xs font-mono">In Development</span>
+                      <span className="text-emerald-700 text-xs font-mono font-bold">Completed</span>
                     </div>
                     <p className="text-xs text-slate-600 mt-1 font-normal">
                       Node.js 24 + Express 5, React 19 + Vite, LangChain, Google Gemini, and MongoDB vector store.

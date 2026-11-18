@@ -24,7 +24,7 @@ export function Skills({ skillsData }: SkillsProps) {
       {/* Background glow accent */}
       <div className="absolute top-1/3 right-0 w-72 h-72 bg-[#003e9c]/5 blur-[120px] pointer-events-none rounded-full" />
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Header with Motion */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

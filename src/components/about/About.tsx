@@ -37,7 +37,7 @@ export function About({ profile, education }: AboutProps) {
       {/* Background glow accent */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-80 h-80 bg-[#003e9c]/5 blur-[120px] pointer-events-none rounded-full" />
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Heading with Motion */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

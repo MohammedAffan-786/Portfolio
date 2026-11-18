@@ -3,8 +3,8 @@
     "id": "devflow-ai",
     "title": "DevFlow AI",
     "subtitle": "Code Intelligence & Security Analysis Platform",
-    "status": "In Development",
-    "statusType": "in-development",
+    "status": "Completed",
+    "statusType": "completed",
     "featured": true,
     "githubUrl": "https://github.com/MohammedAffan-786/DevFlow-AI",
     "liveDemoUrl": null,
@@ -27,14 +27,14 @@
     ],
     "techStack": ["React", "TypeScript", "Express.js", "FastAPI", "MongoDB", "Redis", "BullMQ", "Docker"],
     "architectureNotes": "React frontend communicates with Express.js and FastAPI services. Redis & BullMQ manage asynchronous repo-ingestion tasks, with Docker providing isolated analysis environments.",
-    "verificationNotice": "Source code repository verified on GitHub (MohammedAffan-786/DevFlow-AI). Architecture and backend services in active development."
+    "verificationNotice": "Project Completed. Source code repository verified on GitHub (MohammedAffan-786/DevFlow-AI). Architecture and backend services verified."
   },
   {
     "id": "edureach",
     "title": "EduReach",
     "subtitle": "Agentic College Chatbot & Guidance Assistant",
-    "status": "In Development",
-    "statusType": "in-development",
+    "status": "Completed",
+    "statusType": "completed",
     "featured": true,
     "githubUrl": "https://github.com/MohammedAffan-786/EduReach-Agentic-College-Chatbot",
     "liveDemoUrl": null,
@@ -56,7 +56,7 @@
     ],
     "techStack": ["Python", "Node.js", "React.js", "MongoDB Atlas", "Google Gemini", "Vapi"],
     "architectureNotes": "React.js frontend interacts with Node.js/Python backend. Google Gemini powers knowledge retrieval against MongoDB Atlas, secured by JWT authentication.",
-    "verificationNotice": "Source code repository verified on GitHub (MohammedAffan-786/EduReach-Agentic-College-Chatbot)."
+    "verificationNotice": "Project Completed. Source code repository verified on GitHub (MohammedAffan-786/EduReach-Agentic-College-Chatbot)."
   },
   {
     "id": "research-rabbit-ai",
